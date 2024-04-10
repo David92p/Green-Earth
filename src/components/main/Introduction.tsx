@@ -6,10 +6,10 @@ import introduction3 from "../../assets/images/introduction-3.png"
 
 const Introduction:React.FC = () => {
   return (
-    <div className='flex flex-col items-center sm:px-8 gap-8'>
+    <div className='flex flex-col items-center p-4 sm:px-8 2xl:py-8 gap-8'>
         <div className='flex flex-col 2xl:flex-row justify-center items-center sm:gap-4'>
           <div>
-            <p className='text-mygreen font-mytitlefont text-2xl sm:text-4xl font-bold tracking-wider text-center mb-2'>Air Pollutants</p>
+            <p className='text-mygreen font-mytitlefont text-2xl sm:text-4xl font-bold tracking-wider text-center mb-2 2xl:mb-0'>Air Pollutants</p>
             <p className='text-center text-lg sm:text-2xl text-slate-900 tracking-wider'>
               Atmospheric pollutants are substances that alter the normal chemical composition of the air with consequences on human health and the environment.<br/>
               For each pollutant, the main chemical-physical characteristics, the areas of probable accumulation, the sources of emission, the effects on health and the most critical periods of the year are reported.
@@ -19,7 +19,7 @@ const Introduction:React.FC = () => {
         </div>
         <div className='flex flex-col 2xl:flex-row-reverse justify-center items-center sm:gap-4'>
           <div>
-            <p className='text-mygreen font-mytitlefont text-2xl sm:text-4xl font-bold tracking-wider text-center mb-2'>Pollutant Classification</p>
+            <p className='text-mygreen font-mytitlefont text-2xl sm:text-4xl font-bold tracking-wider text-center mb-2 2xl:mb-0'>Pollutant Classification</p>
             <p className='text-center text-lg sm:text-2xl text-slate-900 tracking-wider'>
               Can be classified as primary or secondary, depending on how they are formed.
               <br/>Primary pollutants are those emitted directly
@@ -40,7 +40,7 @@ const Introduction:React.FC = () => {
         </div>
         <div className='flex flex-col 2xl:flex-row justify-center items-center sm:gap-4'>
           <div>
-            <p className='text-mygreen font-mytitlefont text-2xl sm:text-4xl font-bold tracking-wider text-center mb-2'>Research & Sustainability</p>
+            <p className='text-mygreen font-mytitlefont text-2xl sm:text-4xl font-bold tracking-wider text-center mb-2 2xl:mb-0'>Research & Sustainability</p>
             <p className='text-center text-lg sm:text-2xl text-slate-900 tracking-wider'>
               Collecting and analyzing data is the first step towards change. 
               Let's examine the levels of pollutants in the air together and fight for a sustainable future.
