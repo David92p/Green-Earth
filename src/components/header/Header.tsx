@@ -20,7 +20,7 @@ const Header:React.FC = () => {
         <img src={img1} alt="img1" className="w-4/5 sm:w-1/4 sm:h-52 2xl:w-1/2 2xl:pr-2 2xl:pb-2"/>
         <img src={img2} alt="img2" className="w-4/5 sm:w-1/4 sm:h-52 2xl:w-1/2 2xl:pb-2"/>
         <img src={img4} alt="img4" className="w-4/5 sm:w-1/4 sm:h-52 2xl:w-1/2 2xl:pr-2"/>
-        <img src={img3} alt="img3" className="w-4/5 sm:w-1/4 sm:h-52 2xl:w-1/2"/>
+        <img src={img3} alt="img3" className="w-4/5 sm:w-1/4 sm:h-52 2xl:w-1/2 border-4"/>
       </div>
     </div>
   )
