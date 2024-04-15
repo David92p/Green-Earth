@@ -19,7 +19,7 @@ const Body:React.FC = () => {
         </div>
         <video src={body2} autoPlay loop muted className='object-cover h-72 2xl:h-[500px] sm:w-full'/>
       </div>
-      <div className='py-6 px-4 sm:px-8'>
+      <div className='sm:py-6 px-4 sm:px-8'>
         <p className="text-mygreen font-mytitlefont text-4xl sm:text-5xl font-bold tracking-wider text-center pt-6">European<br/>Green Deal</p>
         <p className='text-center py-4 2xl:px-10 text-lg sm:text-2xl text-slate-900 tracking-wider'>
           The European Green Deal is a package of strategic initiatives that aims to put the EU on the path to a green transition, with the ultimate goal of achieving climate neutrality by 2050.
@@ -79,7 +79,7 @@ const Body:React.FC = () => {
               </div>
               <hr className={`bg-mygreen w-2 h-2/3 border-none sm:w-1/3 sm:h-2`}/>
             </div>
-            <div className='flex flex-col justify-center sm:justify-start sm:gap-14 py-4 sm:px-4 2xl:px-8 w-2/3 sm:w-full sm:h-full border-none'>
+            <div className='flex flex-col justify-center sm:justify-start sm:gap-14 sm:pt-12 2xl:pt-0 py-4 sm:px-4 2xl:px-8 w-2/3 sm:w-full sm:h-full border-none'>
               <p className='text-mygreen font-mytitlefont text-2xl sm:text-3xl font-bold tracking-wider text-center'>The goal<br/>of 2050</p>
               <p className='text-center font-mytitlefont text-lg sm:text-2xl text-slate-900 tracking-wider px-2'>
                 A series of political initiatives aimed at making the EU climate neutral in 2050 and achieving the objective set by the "European Green Deal". The agreement will save our planet from 310 million tons of harmful CO2 emissions.
@@ -88,16 +88,16 @@ const Body:React.FC = () => {
           </div>
         </div>
         <div className='flex flex-col justify-center items-center'>
-          <p className='text-center font-mytitlefont text-lg sm:text-2xl text-slate-900 tracking-wider py-4 h-auto'>
+          <p className='text-center font-mytitlefont text-lg sm:text-2xl text-slate-900 tracking-wider p-4 h-auto'>
             The regulation aims to spur innovation for a new era of green technology, while inspiring countries outside the EU to take similar measures to safeguard the planet for future generations.
             <br/>You can find more information about it through the <a className='font-mytitlefont text-mygreen' href="https://commission.europa.eu/index_it" target="_blank">official page of the European Union</a> or directly at the link on the topic <a className='font-mytitlefont text-mygreen' target="_blank" href="https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal_it">European Green Deal</a>.
           </p>
           <img src={body1} alt="body-1" className='object-cover w-full 2xl:w-[800px] h-32 sm:h-72'/>
         </div>
       </div>
-      <div className='flex flex-col py-4 px-4 sm:px-8 2xl:gap-8'>
+      <div className='flex flex-col p-6 sm:px-14 2xl:gap-8'>
         <p className='text-mygreen font-mytitlefont text-4xl sm:text-5xl font-bold tracking-wider text-center sm:pt-6'>Air Pollution Levels</p>
-        <p className='text-center py-4 2xl:px-10 text-lg sm:text-2xl text-slate-900 tracking-wider'>
+        <p className='text-center py-4 sm:py-8 2xl:py-4 2xl:px-10 text-lg sm:text-2xl text-slate-900 tracking-wider'>
           The main greenhouse gases present in the Earth's atmosphere are Methane (CH₄), Carbon Monoxide (CO), Ozone (O₃) and Nitrogen Dioxide (NO₂).
           <br/> Unfortunately there are many other substances that we unconsciously introduce into our body during the act of breathing. The percentages of all these gases are much lower than those we have just mentioned, despite this, many are polluting gases that can have repercussions on our health and the ecosystem.
         </p>
