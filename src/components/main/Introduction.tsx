@@ -47,8 +47,8 @@ const Introduction:React.FC = () => {
             <br/>We believe in change by becoming aware of current environmental results. The graphs show the levels of pollutants that are present on our planet.
           </p>
         </div>
-        <div className='flex justify-center w-full sm:w-7/12 p-4'>
-          <img src={introduction3} alt="introduction3" className='h-64 sm:h-96 2xl:h-72 w-full object-fit'/>
+        <div className='flex justify-center w-full sm:w-7/12 px-14 sm:px-4 py-5'>
+          <img src={introduction3} alt="introduction3" className='h-56 sm:h-72 2xl:h-72 w-full object-fit'/>
         </div>
       </div>
     </div>
