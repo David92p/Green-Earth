@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from "../index"
 import Slider from "react-slick";
 import "./header.css"
@@ -22,10 +22,6 @@ const Header:React.FC = () => {
     autoplaySpeed: 1000,
     cssEase: "continue"
   };
-
-  useEffect(() => {
-    console.log(largeScreen)
-  }, [largeScreen])
   
   return (
     <div className="flex flex-col 2xl:flex-row 2xl:justify-around bg-myfirstyellow p-4">
