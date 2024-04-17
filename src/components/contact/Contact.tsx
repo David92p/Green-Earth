@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import contact1 from "../../assets/images/contact-1.jpg"
 
 import { Button } from "../index"
+import axios from 'axios';
 
 const Contact:React.FC = () => {
   
@@ -16,31 +17,30 @@ const Contact:React.FC = () => {
 
 	const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-		console.log("ok")
-    // const DATA = {
-    //   service_id: "service_4yfil2v",
-    //   template_id: "template_7x1epr8",
-    //   user_id: "z96csXSCZK5wNKmbc",
-    //   template_params: {
-    //     user_name,
-    //     user_surname,
-    //     user_email,
-    //     user_message,
-    //   },
-    // };
-    // try {
-    //   await axios.post("https://api.emailjs.com/api/v1.0/email/send", DATA);
-    //   setSuccess(true);
-    // } catch (error) {
-    //   setError(true);
-    // }
-    // finally {
-    //   setUser_name("");
-    //   setUser_surname("");
-    //   setUser_email("");
-    //   setUser_messae("");
-    //   setUser_check(false);
-    // }
+    const DATA = {
+      service_id: import.meta.env.VITE_APP_SERVICE_ID,
+      template_id: import.meta.env.VITE_APP_TEMPLATE_ID,
+      user_id: import.meta.env.VITE_APP_PUBLIC_KEY,
+      template_params: {
+        user_name,
+        user_surname,
+        user_email,
+        user_message,
+      },
+    };
+    try {
+      await axios.post("https://api.emailjs.com/api/v1.0/email/send", DATA);
+      setSuccess(true);
+    } catch (error) {
+      setError(true);
+    }
+    finally {
+      setUser_name("");
+      setUser_surname("");
+      setUser_email("");
+      setUser_messae("");
+      setUser_check(false);
+    }
   };
 
   return (
@@ -63,13 +63,13 @@ const Contact:React.FC = () => {
         </div>
         <div className="sm:w-3/5 bg-amber-200 p-4 sm:py-20 2xl:py-auto rounded-t-2xl sm:rounded-r-2xl sm:rounded-l-none">
           {!success && !error ? (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
               <div className="flex flex-col sm:grid grid-cols-2 gap-4 mb-6">
                 <input
                   value={user_name}
                   name="user_name"
                   onChange={(e) => setUser_name(e.target.value)}
-                  placeholder={"placeholder name"}
+                  placeholder={"name"}
                   type="text"
                   required
                   className="border border-mygreen focus:border-2 focus:border-mygreen py-1 px-2 text-slate-900 focus:outline-none rounded-md"
@@ -78,7 +78,7 @@ const Contact:React.FC = () => {
                   value={user_surname}
                   name="user_surname"
                   onChange={(e) => setUser_surname(e.target.value)}
-                  placeholder={"placeholder surname"}
+                  placeholder={"surname"}
                   type="text"
                   required
                   className="border border-mygreen focus:border-2 focus:border-mygreen py-1 px-2 text-slate-900 focus:outline-none rounded-md"
@@ -89,7 +89,7 @@ const Contact:React.FC = () => {
                   value={user_email}
                   name="user_email"
                   onChange={(e) => setUser_email(e.target.value)}
-                  placeholder={"placeholder email"}
+                  placeholder={"email"}
                   type="email"
                   required
                   className="border border-mygreen focus:border-2 focus:border-mygreen py-1 px-2 mb-6 text-slate-900 focus:outline-none rounded-md"
@@ -98,7 +98,7 @@ const Contact:React.FC = () => {
                   value={user_message}
                   name="user_message"
                   onChange={(e) => setUser_messae(e.target.value)}
-                  placeholder={"placeholder message"}
+                  placeholder={"message ..."}
                   required
                   maxLength={500}
                   className="py-1 px-2 h-48 border border-mysecondyellow-800 resize-none text-slate-900 focus:outline-none border-mygreen focus:border-2 focus:border-mygreen  rounded-md"
@@ -126,23 +126,23 @@ const Contact:React.FC = () => {
                   </a>
                 </span>
               </div>
-              <div className="mt-10 w-full flex justify-center">
+              <div className="mt-10 w-full flex justify-center text-2xl sm:text-3xl">
 								<Button name="Send"/>
               </div>
             </form>
           ) : success ? (
             <div
               onClick={() => setSuccess(false)}
-              className={`my-[50%] sm:mt-10 py-4 px-2 text-center shadow-2xl font-medium tracking-wide rounded-lg text-xl sm:text-2xl cursor-pointer`}
+              className={`bg-mygreen my-[50%] sm:mt-10 py-4 px-2 text-center shadow-2xl rounded-lg text-slate-100 font-bold tracking-wider text-2xl sm:text-3xl cursor-pointer`}
             >
-              {/* { state.contact.success } */}
+              Success
             </div>
           ) : (
             <div
               onClick={() => setError(false)}
-              className="my-[50%] sm:mt-10 py-4 text-center bg-red-300 shadow-xl font-bold tracking-wide text-slate-600 rounded-lg text-xl sm:text-2xl cursor-pointer"
+              className={`bg-red-400 my-[50%] sm:mt-10 py-4 px-2 text-center shadow-2xl rounded-lg text-slate-100 font-bold tracking-wider text-2xl sm:text-3xl cursor-pointer`}
             >
-              {/* { state.contact.error } */}
+              Error
             </div>
           )}
         </div>
