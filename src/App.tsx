@@ -1,4 +1,4 @@
-import { DataSearch, Header, Main } from "./components"
+import { Contact, DataSearch, Header, Main, Footer } from "./components"
 
 
 const App:React.FC = () => {
@@ -19,6 +19,8 @@ const App:React.FC = () => {
       <Header />
       <DataSearch/>
       <Main/>
+      <Contact/>
+      <Footer />
     </div>
   )
 }
