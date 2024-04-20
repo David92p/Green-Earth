@@ -1,3 +1,6 @@
+// import navbar
+import Navbar from "./navbar/Navbar";
+
 // import header
 import Header from "./header/Header";
 
@@ -23,5 +26,5 @@ import Carousel from "./global/Carousel";
 // type
 import type { CardType } from "./global/Card";
 
-export { Header, Main, Introduction, Body, Footer, DataSearch, Contact, Button, Card, Carousel }
+export { Navbar, Header, Main, Introduction, Body, Footer, DataSearch, Contact, Button, Card, Carousel }
 export type { CardType }
