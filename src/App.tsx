@@ -1,4 +1,6 @@
-import { Contact, DataSearch, Header, Main, Footer } from "./components"
+import { Navbar, Contact, DataSearch, Header, Main, Footer } from "./components"
+
+import "./App.css"
 
 
 const App:React.FC = () => {
@@ -15,7 +17,8 @@ const App:React.FC = () => {
   // }, [])
 
   return (
-    <div className="flex flex-col bg-firstyellow">
+    <div className="container">
+      <Navbar />
       <Header />
       <DataSearch/>
       <Main/>
