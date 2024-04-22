@@ -37,16 +37,16 @@ const Navbar:React.FC = () => {
 
 
   return (
-    <div className="container">
+    <div className="container-nav">
 			<div className="container-toggle">
 				<div className="container-logo">
 					<img src={logo} alt="LOGO" className={`logo ${isOpen ? "hidden" : null}`}/>
 				</div>
 				<div className="container-links invisible sm:visible">
-					<div className="link">Chart</div>
-					<div className="link">Introduction</div>
-					<div className="link">EU Green Deal</div>
-					<div className="link">Contact</div>
+					<a className="link" href="#introduction" onClick={() => setIsOpen(false)}>Introduction</a>
+					<a className="link" href="#chart" onClick={() => setIsOpen(false)}>Chart</a>
+					<a className="link" href="#eugreendeal" onClick={() => setIsOpen(false)}>EU Green Deal</a>
+					<a className="link" href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
 				</div>
 				<div className="container-burger">
 					<motion.button
@@ -62,10 +62,10 @@ const Navbar:React.FC = () => {
 			{
 				isOpen ? (
 					<div className="container-links">
-						<div className="link">Chart</div>
-						<div className="link">Introduction</div>
-						<div className="link">EU Green Deal</div>
-						<div className="link">Contact</div>
+						<a className="link" href="#introduction" onClick={() => setIsOpen(false)}>Introduction</a>
+						<a className="link" href="#chart" onClick={() => setIsOpen(false)}>Chart</a>
+						<a className="link" href="#eugreendeal" onClick={() => setIsOpen(false)}>EU Green Deal</a>
+						<a className="link" href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
 					</div>
 				) : null
 			}

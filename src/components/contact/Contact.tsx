@@ -44,7 +44,7 @@ const Contact:React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-myfirstyellow font-mytitlefont">
+    <div className="flex flex-col justify-center items-center bg-myfirstyellow font-mytitlefont" id="contact">
       <p className='text-mygreen text-4xl sm:text-5xl font-bold tracking-wider text-center sm:pt-6'>Contact</p>
       <div className='flex flex-col-reverse sm:flex-row 2xl:w-3/5 2xl:h-auto m-6 sm:m-8 rounded-2xl'>
         <div className="sm:w-2/5 bg-gradient-to-br from-amber-800 to-amber-500 relative rounded-b-2xl sm:rounded-l-2xl sm:rounded-br-none">
