@@ -1,4 +1,4 @@
-import { Navbar, Contact, DataSearch, Header, Main, Footer } from "./components"
+import { Navbar, Contact, DataSearch, Header, Main, Footer, Introduction } from "./components"
 
 import "./App.css"
 
@@ -20,6 +20,7 @@ const App:React.FC = () => {
     <div className="container">
       <Navbar />
       <Header />
+      <Introduction/>
       <DataSearch/>
       <Main/>
       <Contact/>
