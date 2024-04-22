@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container-header {
+    @apply flex flex-col bg-myfirstyellow p-4 mt-14;
+    @apply sm:mt-20 sm:px-0; /* medium screen */
+    @apply 2xl:flex-row 2xl:justify-around  2xl:mt-24; /* large screen */
+}
+
+.container-header-text {
+    @apply flex flex-col;
+    @apply sm:justify-center sm:gap-4; /* medium screen */
+    @apply 2xl:w-1/2; /* large screen */
+}
+
+.header-subtitle {
+    @apply text-mygreen font-mytitlefont text-xl font-bold tracking-wider text-center my-4;
+    @apply sm:text-2xl 
+}
+
+.header-title {
+    @apply text-mygreen font-mytitlefont text-6xl font-bold tracking-wider text-center;
+    @apply sm:text-7xl /* medium screen */
+}
+
+.header-link {
+    @apply flex justify-center
+}
+
+.container-header-img {
+    @apply flex 2xl:w-2/5 2xl:flex-wrap
+}

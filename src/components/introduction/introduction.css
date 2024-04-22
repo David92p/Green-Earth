@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container-introduction {
+    @apply flex flex-col items-center gap-4 bg-myfirstyellow;
+    @apply sm:gap-8 /* medium screen */
+}
+
+.section-introduction {
+    @apply flex flex-col justify-center items-center;
+    @apply sm:gap-4; /* medium screen */
+    @apply 2xl:flex-row 2xl:px-10; /* large screen */
+}
+
+.introduction-title {
+    @apply text-mygreen font-mytitlefont text-2xl font-bold tracking-wider text-center py-2;
+    @apply sm:text-4xl sm:py-4; /* medium screen */
+}
+
+.introduction-text {
+    @apply text-center font-mytitlefont text-lg text-slate-900 tracking-wider px-4;
+    @apply sm:text-3xl sm:px-6; /* medium screen */
+    @apply 2xl:text-2xl; /* large screen */
+}
+
+.introduction-img {
+    @apply h-52 p-4 rounded-3xl;
+    @apply sm:h-72 sm:w-3/5; /* medium screen */
+    @apply 2xl:w-2/5; /* large screen */
+}
