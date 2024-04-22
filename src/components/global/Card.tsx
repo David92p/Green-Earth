@@ -15,7 +15,7 @@ const Card:React.FC<CardType> = ({title, description, img}) => {
 			</div>
       <div className='h-2/3 2xl:h-3/5 flex flex-col justify-around sm:justify-start  sm:gap-3 items-center'>
 				<p className='text-mygreen font-mytitlefont text-3xl sm:text-2xl 2xl:text-3xl font-bold tracking-wider text-center sm:px-4 sm:my-4'>{title}</p>
-				<p className='text-justify mx-4 pb-4 text-md sm:text-lg 2xl:text-xl text-slate-900 tracking-wider'>{description}</p>
+				<p className='text-justify font-mytitlefont mx-4 pb-4 text-md sm:text-lg 2xl:text-xl text-slate-900 tracking-wider'>{description}</p>
 			</div>
     </div>
   )
