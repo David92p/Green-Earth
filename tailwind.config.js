@@ -12,8 +12,7 @@ export default {
         "mygreen": "#37818A"
       }, 
       fontFamily: {
-        "mytitlefont": ["Playfair Display", "serif"],
-        "mytextfont": ["Playfair Display", "serif"]
+        "myfont": ["Playfair Display", "serif"],
       }
     },
   },
