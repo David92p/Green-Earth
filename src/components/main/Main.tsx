@@ -4,24 +4,27 @@ import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
 import { Carousel, Card } from '../'
 import type { CardType } from '../../components'
-// data
+// img
 import body1 from "../../assets/images/body-1.png"
 import body2 from "../../assets/images/body-2.mp4"
+// data
 import { cards } from "../../data" 
+//style
+import "./main.css"
 
 const Main:React.FC = () => {
   const [largeScreen] = useState(window.innerWidth)
   return (
-    <div className='flex flex-col bg-red-50' id='eugreendeal'>
-      <div className='flex justify-center items-center'> 
-        <div className='absolute flex justify-center sm:w-1/2 2xl:w-2/3'>
-          <span className='text-slate-100 font-mytitlefont text-4xl sm:text-5xl 2xl:text-7xl font-bold tracking-wider text-center'>Always aiming<br/>for tomorrow's possibilities</span>
+    <div className='container-main' id='eugreendeal'>
+      <div className='container-video'> 
+        <div className='container-text-video'>
+          <span className='text-video'>Always aiming<br/>for tomorrow's possibilities</span>
         </div>
-        <video src={body2} autoPlay loop muted className='object-cover h-72 2xl:h-[500px] sm:w-full'/>
+        <video src={body2} autoPlay loop muted/>
       </div>
-      <div className='sm:py-6 px-4 sm:px-8'>
-        <p className="text-mygreen font-mytitlefont text-4xl sm:text-5xl font-bold tracking-wider text-center pt-6">European<br/>Green Deal</p>
-        <p className='text-center py-4 2xl:px-10 text-lg sm:text-2xl text-slate-900 tracking-wider'>
+      <div className='container-timeline'>
+        <p className="timeline-title">European<br/>Green Deal</p>
+        <p className='timeline-subtitle'>
           The European Green Deal is a package of strategic initiatives that aims to put the EU on the path to a green transition, with the ultimate goal of achieving climate neutrality by 2050.
         </p>
         <div className="flex flex-col sm:flex-row">
