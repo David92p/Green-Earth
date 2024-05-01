@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container-main {
+    @apply flex flex-col bg-red-50
+}
+
+.container-video {
+    @apply flex justify-center items-center
+}
+
+.container-text-video {
+    @apply absolute flex justify-center;
+    @apply sm:w-1/2; /* MEDIUM SCREEN */
+    @apply 2xl:w-2/3 /* LARGE SCREEN */
+} 
+
+.text-video {
+    @apply text-slate-100 text-4xl font-bold tracking-wider text-center;
+    @apply sm:text-5xl; /* MEDIUM SCREEN */
+    @apply 2xl:text-7xl /* LARGE SCREEN */
+}
+
+video {
+    @apply object-cover h-72;
+    @apply sm:w-full; /* MEDIUM SCREEN */
+    @apply 2xl:h-[500px] /* LARGE SCREEN */
+}
+
+.container-timeline {
+    @apply px-4;
+    @apply sm:px-8 sm:py-6 ; /* MEDIUM SCREEN */
+}
+
+.timeline-title {
+    @apply text-mygreen text-4xl font-bold tracking-wider text-center pt-6;
+    @apply sm:text-5xl ; /* MEDIUM SCREEN */
+}
+
+.timeline-subtitle {
+    @apply text-center py-4 text-lg  text-slate-900 tracking-wider;
+    @apply sm:text-2xl;
+    @apply 2xl:px-10 
+}
+

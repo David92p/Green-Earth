@@ -15,12 +15,12 @@
 }
 
 .header-subtitle {
-    @apply text-mygreen font-mytitlefont text-xl font-bold tracking-wider text-center my-4;
+    @apply text-mygreen text-xl font-bold tracking-wider text-center my-4;
     @apply sm:text-2xl 
 }
 
 .header-title {
-    @apply text-mygreen font-mytitlefont text-6xl font-bold tracking-wider text-center;
+    @apply text-mygreen text-6xl font-bold tracking-wider text-center;
     @apply sm:text-7xl /* medium screen */
 }
 

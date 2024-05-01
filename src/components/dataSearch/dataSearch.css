@@ -2,11 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* DATASEARCH */
+.container-data-search {
+    @apply flex flex-col justify-center items-center bg-myfirstyellow
+}
+
 /* RESEARCH */
 .container-input {
-    @apply flex flex-col justify-center items-center border-4 border-green-500
+    @apply flex flex-col justify-center items-center w-full pt-4;
 }
 
 .input-city {
-    @apply w-1/2 border-2 border-mygreen text-lg font-mytitlefont font-bold tracking-wider px-2
+    @apply w-4/5 border-2 border-mygreen text-lg font-bold tracking-wider px-1
+}
+
+.container-list-toggle {
+    @apply flex flex-col justify-center items-center gap-2 p-4 w-full
+}
+
+.input {
+    @apply text-mygreen text-lg tracking-wider text-center font-bold font-myfont; 
+    @apply 2xl:cursor-pointer 2xl:hover:bg-mysecondyellow 2xl:hover:px-4 2xl:hover:rounded-lg /* LARGE SCREEN */
 }

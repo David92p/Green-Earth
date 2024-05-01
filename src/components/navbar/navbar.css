@@ -43,7 +43,7 @@
 }
 
 .link {
-  @apply text-xl font-mytitlefont font-bold tracking-wider text-mygreen;
+  @apply text-xl font-bold tracking-wider text-mygreen;
   @apply sm:text-xl sm:font-extrabold; /* medium screen */
   @apply 2xl:hover:text-myfirstyellow 2xl:text-2xl; /* large screen */
 }
