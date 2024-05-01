@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* RESEARCH */
+.container-input {
+    @apply flex flex-col justify-center items-center border-4 border-green-500
+}
+
+.input-city {
+    @apply w-1/2 border-2 border-mygreen text-lg font-mytitlefont font-bold tracking-wider px-2
+}
