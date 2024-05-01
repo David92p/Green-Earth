@@ -12,36 +12,12 @@ const Navbar:React.FC = () => {
 
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  // const onMenu = () => {
-  //   const containerLink = document.querySelector(
-  //     ".container-link"
-  //   ) as HTMLDivElement;
-  //   if (menu) {
-  //     containerLink.classList.add("absolute");
-  //     setMenu(false);
-  //   } else {
-  //     containerLink.classList.remove("absolute");
-  //     setMenu(true);
-  //   }
-  // };
-
-  //const [ backgroundColor, setBackgroundcolor] = useState(false)
-
-	// const changeColor = () => {
-	// 	if (window.scrollY >= 90){
-	// 		setBackgroundcolor(true)
-	// 	} else {
-	// 		setBackgroundcolor(false)
-	// 	}
-	// }
-
-
   return (
     <div className="container-nav">
 			<div className="container-toggle">
-				<div className="container-logo">
+				<a className="container-logo" href="#top" onClick={() => setIsOpen(false)}>
 					<img src={logo} alt="LOGO" className={`logo ${isOpen ? "hidden" : null}`}/>
-				</div>
+				</a>
 				<div className="container-links invisible sm:visible">
 					<a className="link" href="#introduction" onClick={() => setIsOpen(false)}>Introduction</a>
 					<a className="link" href="#chart" onClick={() => setIsOpen(false)}>Chart</a>
