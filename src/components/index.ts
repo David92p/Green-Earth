@@ -12,7 +12,6 @@ import DataSearch from "./dataSearch/DataSearch";
 
 // main
 import Main from "./main/Main";
-// import Body from "./main/Body";
 
 // contact
 import Contact from "./contact/Contact"
