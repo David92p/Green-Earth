@@ -27,6 +27,7 @@ const Main:React.FC = () => {
         <p className='timeline-subtitle'>
           The European Green Deal is a package of strategic initiatives that aims to put the EU on the path to a green transition, with the ultimate goal of achieving climate neutrality by 2050.
         </p>
+        {/* CONTAINER TIMELINE WITH ICONS AND TEXT - CSS IN LINE  */}
         <div className="flex flex-col sm:flex-row">
           <div className='flex sm:flex-col h-auto sm:w-1/4 border-none'>
             <div className='flex flex-col sm:flex-row items-center sm:justify-center w-1/3 sm:w-full sm:h-56'>
@@ -90,17 +91,17 @@ const Main:React.FC = () => {
             </div>
           </div>
         </div>
-        <div className='flex flex-col justify-center items-center'>
-          <p className='text-center font-mytitlefont text-lg sm:text-2xl text-slate-900 tracking-wider p-4 h-auto'>
+        <div className='container-footer-timeline'>
+          <p className='text-footer'>
             The regulation aims to spur innovation for a new era of green technology, while inspiring countries outside the EU to take similar measures to safeguard the planet for future generations.
-            <br/>You can find more information about it through the <a className='font-mytitlefont text-mygreen' href="https://commission.europa.eu/index_it" target="_blank">official page of the European Union</a> or directly at the link on the topic <a className='font-mytitlefont text-mygreen' target="_blank" href="https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal_it">European Green Deal</a>.
+            <br/>You can find more information about it through the <a className='text-mygreen' href="https://commission.europa.eu/index_it" target="_blank">official page of the European Union</a> or directly at the link on the topic <a className='text-mygreen' target="_blank" href="https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal_it">European Green Deal</a>.
           </p>
-          <img src={body1} alt="body-1" className='object-cover w-full 2xl:w-[800px] h-32 sm:h-72'/>
+          <img src={body1} alt="body-1" />
         </div>
       </div>
-      <div className='flex flex-col p-6 sm:px-14 2xl:gap-8'>
-        <p className='text-mygreen font-mytitlefont text-4xl sm:text-5xl font-bold tracking-wider text-center sm:pt-6'>Air Pollution Levels</p>
-        <p className='text-center font-mytitlefont py-4 sm:py-8 2xl:py-4 2xl:px-10 text-lg sm:text-2xl text-slate-900 tracking-wider'>
+      <div className='container-card-timeline'>
+        <p className='card-timeline-title'>Air Pollution Levels</p>
+        <p className='card-timeline-subtitle'>
           The main greenhouse gases present in the Earth's atmosphere are Methane (CH₄), Carbon Monoxide (CO), Ozone (O₃) and Nitrogen Dioxide (NO₂).
           <br/> Unfortunately there are many other substances that we unconsciously introduce into our body during the act of breathing. The percentages of all these gases are much lower than those we have just mentioned, despite this, many are polluting gases that can have repercussions on our health and the ecosystem.
         </p>
