@@ -44,3 +44,36 @@ video {
     @apply 2xl:px-10 
 }
 
+
+.container-footer-timeline {
+    @apply flex flex-col justify-center items-center;
+}
+
+.text-footer {
+    @apply text-center text-lg text-slate-900 tracking-wider p-4 h-auto;
+    @apply sm:text-2xl; /* MEDIUM SCREEN */
+}
+
+.container-footer-timeline img {
+    @apply object-cover w-full h-32;
+    @apply sm:h-72;
+    @apply 2xl:w-[800px]; /* LARGE SCREEN */
+}
+
+.container-card-timeline {
+    @apply flex flex-col p-6;
+    @apply sm:px-14; /* MEDIUM SCREEN */
+    @apply 2xl:gap-8; /* LARGE SCREEN */
+}
+
+.card-timeline-title {
+    @apply text-mygreen text-4xl font-bold tracking-wider text-center;
+    @apply sm:text-5xl sm:pt-6; /* MEDIUM SCREEN */
+}
+
+.card-timeline-subtitle {
+    @apply text-center py-4 text-lg sm:text-2xl text-slate-900 tracking-wider;
+    @apply sm:py-8; /* MEDIUM SCREEN */
+    @apply 2xl:py-4 2xl:px-10; /* LARGE SCREEN */
+}
+
