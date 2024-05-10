@@ -34,7 +34,7 @@ const Main:React.FC = () => {
               <div className='flex justify-center items-center h-1/3 sm:h-full w-full sm:w-2/3 mt-8 mb-8 sm:m-0'>
                 <FontAwesomeIcon icon={faCircle} style={{color: "#FFCC31", height: largeScreen < 641 ? "50px" : (largeScreen < 1030 ? "60px" : "70px")}} />
               </div>
-              <hr className={`bg-mygreen w-2 h-2/3 border-none sm:w-1/3 sm:h-2`}/>
+              <hr className={`bg-mygreen w-2 h-2/3 border-none sm:w-2/3 sm:h-2`}/>
             </div>
             <div className='flex flex-col justify-center sm:justify-start sm:gap-14 py-4 2xl:px-8 w-2/3 sm:w-full sm:h-full'>
               <p className='text-mygreen font-mytitlefont text-2xl sm:text-3xl font-bold tracking-wider text-center 2xl:mx-12'>Initiative of December 2019</p>
@@ -81,7 +81,7 @@ const Main:React.FC = () => {
               <div className='flex justify-center items-center h-1/3 sm:h-full w-full sm:w-2/3 mt-12 mb-28 sm:m-0'>
                 <FontAwesomeIcon icon={faCircle} style={{color: "#FFCC31", height: largeScreen < 641 ? "90px" : (largeScreen < 1030 ? "105px" : "110px")}} />
               </div>
-              <hr className={`bg-mygreen w-2 h-2/3 border-none sm:w-1/3 sm:h-2`}/>
+              <hr className={`bg-mygreen w-2 h-2/3 border-none sm:w-2/3 sm:h-2 sm:mt-0.5 2xl:mb-1`}/>
             </div>
             <div className='flex flex-col justify-center sm:justify-start sm:gap-14 sm:pt-12 2xl:pt-0 py-4 sm:px-4 2xl:px-8 w-2/3 sm:w-full sm:h-full border-none'>
               <p className='text-mygreen font-mytitlefont text-2xl sm:text-3xl font-bold tracking-wider text-center'>The goal<br/>of 2050</p>
