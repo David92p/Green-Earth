@@ -1,58 +1,87 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Reasearch from './Reasearch'
-import { Button } from '../index'
+import Research from './Research'
+import Chart from './Chart'
+import { Button } from '..'
 
-export type cityType = {
+export type pollutingValuesType = {
+	co: number,
+	nh3: number,
+	no: number,
+	no2: number,
+	o3: number,
+	pm2_5: number,
+	pm10: number,
+	so2: number,
+}
+
+export type cityDataType = {
   id: number
   name: string
   country: string
   state: string
   lat: number 
   lon: number
+  time?: string
+	quality?: number
+	pollutingValues: pollutingValuesType
 }
 
 const DataSearch:React.FC = () => {
 
-  const [city, setCity] = useState<cityType | null>(null)
-  const [listCity, setListCity] = useState<cityType[]>([])
+  const [city, setCity] = useState<cityDataType | null>(null)
+  const [listCity, setListCity] = useState<cityDataType[]>([])
+  //const [pollutingValues, setPollutingValues] = useState<pollutingValuesType | null>(null)
 
-  // useEffect(() => {
-    //axios(`http://api.openweathermap.org/data/2.5/air_pollution?lat=39.3099931&lon=16.2501929&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
-  //   axios(`http://api.openweathermap.org/geo/1.0/direct?q=w&limit=5&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
-  //   .then(res => {
-  //     console.log(res.data)
-  //   })
-  // }, [])
-
-  const getListCity = (par:string) => {
-    // Api ricerca lista type cities con relativa latitudine e longitudine
-    axios(`http://api.openweathermap.org/geo/1.0/direct?q=${par}&limit=5&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
-    .then((res) => {
-      console.log(res.data)
+  const getListCity = async (par:string) => {
+    // Api ricerca lista type cityType con relativa latitudine e longitudine
+    try {
+      const requestCoordinates = await axios(`http://api.openweathermap.org/geo/1.0/direct?q=${par}&limit=5&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
       setListCity(
-        res.data.map((result:cityType) => {
+        requestCoordinates.data.map((result:cityDataType) => {
           const { name, country, state="", lat, lon } = result
           return { id: lat, name, country, state, lat, lon } 
         })
       )
-    })
+    } catch (error) {
+      console.log("errore richiesta coordinate ")
+    }
+    // })
+  }
+
+  const getPollutionData = async (lat:number, lon:number) => {
+    if (city) {
+      try {
+        //dati attuali
+        const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
+        //console.log(requestPollution.data.list[0])
+        const { dt, components } = requestPollution.data.list[0]
+        const { aqi } = requestPollution.data.list[0].main
+        setCity({...city, time: dt, quality: aqi, pollutingValues: components})
+      } catch (error) {
+        console.log("errore pollution data")
+      }
+    } else console.log("non hai impostato city")
   }
 
   useEffect(() => {
     console.log(city)
   }, [city])
-
+  
 
   return (
     <div className='container-data-search' id='chart'>
-      <div className='bg-red-50 w-full h-16'>
-        Graphic inserted here
+      <div className='bg-myfirstyellow w-full h-[800px]'>
+        {city ? <Chart 
+          name={city?.name == city?.state ? `${city?.name + " " + city?.country}` : `${city?.name + " " + city?.state + " " + city?.country}`} 
+          pollutingValues={city.pollutingValues}
+        /> : <Chart/>}
       </div>
-      <Reasearch getListCity={getListCity} listCity={listCity} setListCity={setListCity} setCity={setCity}/>
-      <Button name='Search'/>
+      <Research listCity={ listCity } setListCity={ setListCity } setCity={ setCity } getListCity={ getListCity }/>
+      <Button name='Search' getPollutionData={ getPollutionData } lat={city?.lat || 0} lon={city?.lon || 0}/>
     </div>
   )
 }
 
-export default DataSearch
+
+export default DataSearch;
