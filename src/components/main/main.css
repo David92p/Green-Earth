@@ -17,15 +17,14 @@
 } 
 
 .text-video {
-    @apply text-slate-100 text-4xl font-bold tracking-wider text-center;
+    @apply text-myfirstyellow text-4xl font-bold tracking-wider text-center;
     @apply sm:text-5xl; /* MEDIUM SCREEN */
     @apply 2xl:text-7xl /* LARGE SCREEN */
 }
 
 video {
-    @apply object-cover h-72;
-    @apply sm:w-full; /* MEDIUM SCREEN */
-    @apply 2xl:h-[500px] /* LARGE SCREEN */
+    @apply object-cover;
+    @apply sm:w-full ; /* MEDIUM SCREEN */
 }
 
 .container-timeline {

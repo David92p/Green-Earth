@@ -13,7 +13,8 @@
 }
 
 .input-city {
-    @apply w-4/5 border-2 border-mygreen text-lg font-bold tracking-wider px-1
+    @apply w-4/5 border-2 border-mygreen text-lg font-bold tracking-wider px-1;
+    @apply 2xl:w-1/2
 }
 
 .container-list-toggle {
