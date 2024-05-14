@@ -4,7 +4,7 @@
 
 /* DATASEARCH */
 .container-data-search {
-    @apply flex flex-col justify-center items-center bg-myfirstyellow
+    @apply flex flex-col justify-center items-center bg-myfirstyellow;
 }
 
 /* RESEARCH */
