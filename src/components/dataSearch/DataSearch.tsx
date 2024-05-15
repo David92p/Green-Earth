@@ -71,11 +71,19 @@ const DataSearch:React.FC = () => {
 
   return (
     <div className='container-data-search' id='chart'>
-      <div className='bg-myfirstyellow w-full h-[800px]'>
+      <div className=' bg-myfirstyellow w-full h-[1000px]'>
         {city ? <Chart 
           name={city?.name == city?.state ? `${city?.name + " " + city?.country}` : `${city?.name + " " + city?.state + " " + city?.country}`} 
+          lat={city.lat}
+          lon={city.lon}
+          time={city.time}
+          quality={city.quality}
           pollutingValues={city.pollutingValues}
         /> : <Chart/>}
+      </div>
+      <div className='flex flex-col text-center text-lg text-mygreen gap-4 pb-8 px-4'>
+        <span>µg/m³ = micrograms per cubic meter</span>
+        <span>Quality Index:<br/>1 = Good, 2 = Fair, 3 = Moderate,<br/>4 = Poor, 5 = Very poor</span>
       </div>
       <Research listCity={ listCity } setListCity={ setListCity } setCity={ setCity } getListCity={ getListCity }/>
       <Button name='Search' getPollutionData={ getPollutionData } lat={city?.lat || 0} lon={city?.lon || 0}/>
