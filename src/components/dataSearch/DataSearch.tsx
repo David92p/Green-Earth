@@ -24,14 +24,20 @@ export type cityDataType = {
   lon: number
   time?: string
 	quality?: number
-	pollutingValues: pollutingValuesType
+	pollutingValues?: pollutingValuesType
 }
 
 const DataSearch:React.FC = () => {
 
-  const [city, setCity] = useState<cityDataType | null>(null)
+  const [city, setCity] = useState<cityDataType>({ 
+    id: 51.5073219,
+    name: "London",
+    country: "GB",
+    state: "England",
+    lat: 51.5073219 ,
+    lon: -0.1276474,
+  })
   const [listCity, setListCity] = useState<cityDataType[]>([])
-  //const [pollutingValues, setPollutingValues] = useState<pollutingValuesType | null>(null)
 
   const getListCity = async (par:string) => {
     // Api ricerca lista type cityType con relativa latitudine e longitudine
@@ -46,7 +52,6 @@ const DataSearch:React.FC = () => {
     } catch (error) {
       console.log("errore richiesta coordinate ")
     }
-    // })
   }
 
   const getPollutionData = async (lat:number, lon:number) => {
@@ -54,35 +59,48 @@ const DataSearch:React.FC = () => {
       try {
         //dati attuali
         const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
-        //console.log(requestPollution.data.list[0])
         const { dt, components } = requestPollution.data.list[0]
+        const date = new Date(dt * 1000)
+        const day = date.getDate()
+        let month:string | string[] = ["January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"]
+        month = month[date.getMonth()]
+        const year = date.getFullYear()
+        const hour = date.getHours()
+        const minutes = date.getMinutes().toString().length == 1 ? "0" + date.getMinutes().toString() : date.getMinutes().toString()
+        const time = `Air quality index recorded on ${month} ${day}, ${year} at ${hour}:${minutes}` 
         const { aqi } = requestPollution.data.list[0].main
-        setCity({...city, time: dt, quality: aqi, pollutingValues: components})
+        setCity({...city, time, quality: aqi, pollutingValues: components})
       } catch (error) {
         console.log("errore pollution data")
       }
     } else console.log("non hai impostato city")
   }
-
-  useEffect(() => {
-    console.log(city)
-  }, [city])
-  
+    
+    useEffect(() => {
+      getPollutionData(city?.lat, city?.lon)
+    }, [])
 
   return (
     <div className='container-data-search' id='chart'>
       <div className=' bg-myfirstyellow w-full h-[1000px]'>
-        {city ? <Chart 
+      {city ? <Chart 
           name={city?.name == city?.state ? `${city?.name + " " + city?.country}` : `${city?.name + " " + city?.state + " " + city?.country}`} 
-          lat={city.lat}
-          lon={city.lon}
           time={city.time}
-          quality={city.quality}
           pollutingValues={city.pollutingValues}
         /> : <Chart/>}
       </div>
       <div className='flex flex-col text-center text-lg text-mygreen gap-4 pb-8 px-4'>
-        <span>µg/m³ = micrograms per cubic meter</span>
         <span>Quality Index:<br/>1 = Good, 2 = Fair, 3 = Moderate,<br/>4 = Poor, 5 = Very poor</span>
       </div>
       <Research listCity={ listCity } setListCity={ setListCity } setCity={ setCity } getListCity={ getListCity }/>
