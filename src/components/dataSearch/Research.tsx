@@ -8,7 +8,7 @@ type ResearchType = {
 	// getListCity: (par: string) => void
 	listCity: cityDataType[]
 	setListCity: React.Dispatch<React.SetStateAction<cityDataType[]>>
-	setCity: React.Dispatch<React.SetStateAction<cityDataType | null>>
+	setCity: React.Dispatch<React.SetStateAction<cityDataType>>
 	getListCity: (par: string) => Promise<void>
 } 
 
