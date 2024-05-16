@@ -10,7 +10,6 @@ import {
     SubTitle,
     Tooltip,
     Legend,
-    elements,
   } from 'chart.js';
   import { Bar } from 'react-chartjs-2';
 	import type { pollutingValuesType } from './DataSearch';
@@ -28,14 +27,11 @@ import {
 
 type ChartType = {
 	name?: string
-	lat?: number
-	lon?: number
 	time?: string
-	quality?: number
 	pollutingValues?: pollutingValuesType
 }  
 
-const Chart:React.FC<ChartType> = ({ name, lat, lon, time, quality, pollutingValues }) => {
+const Chart:React.FC<ChartType> = ({ name, time, pollutingValues }) => {
 
   const [largeScreen] = useState(window.innerWidth)
 
@@ -51,7 +47,7 @@ const Chart:React.FC<ChartType> = ({ name, lat, lon, time, quality, pollutingVal
     responsive: true,
     plugins: {
       legend: {
-        display: false,
+        display: true,
         position: "bottom" as const,
         fullSize: true,
         title: { 
@@ -67,21 +63,24 @@ const Chart:React.FC<ChartType> = ({ name, lat, lon, time, quality, pollutingVal
       title: {
         display: true,
         text: name,
-        // , `Latitude: ${lat?.toFixed(2)}`
         color: "#37818A",
         font: {
           size: largeScreen < 641 ? 25 : (largeScreen < 1030 ? 30 : 40),
-          lineHeight: 2
+          lineHeight: 2,
         },
       },
       subtitle: {
         display: true,
-        text: `Quality index: ${quality}`,
+        text: time,
         color: "#37818A",
         font: {
           size: largeScreen < 641 ? 20 : (largeScreen < 1030 ? 30 : 40),
-          lineHeight: "center"
+          lineHeight: 1.2
         },
+        
+        padding: {
+          bottom: 25
+        }
       },
       tooltip: {
         enabled: true,          
@@ -164,7 +163,7 @@ const Chart:React.FC<ChartType> = ({ name, lat, lon, time, quality, pollutingVal
     }],
   };
 
-  return <Bar options={options} data={data} className='py-6 px-2'/>
+  return <Bar options={options} data={data} className='py-6 px-2 sm:px-6 2xl:px-10'/>
   
 }
 
