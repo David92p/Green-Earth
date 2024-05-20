@@ -28,10 +28,11 @@ import {
 type ChartType = {
 	name?: string
 	time?: string
+  quality?: string
 	pollutingValues?: pollutingValuesType
 }  
 
-const Chart:React.FC<ChartType> = ({ name, time, pollutingValues }) => {
+const Chart:React.FC<ChartType> = ({ name, time, quality, pollutingValues }) => {
 
   const [largeScreen] = useState(window.innerWidth)
 
@@ -71,7 +72,7 @@ const Chart:React.FC<ChartType> = ({ name, time, pollutingValues }) => {
       },
       subtitle: {
         display: true,
-        text: time,
+        text: [time, quality],
         color: "#37818A",
         font: {
           size: largeScreen < 641 ? 20 : (largeScreen < 1030 ? 30 : 40),

@@ -23,7 +23,7 @@ export type cityDataType = {
   lat: number 
   lon: number
   time?: string
-	quality?: number
+	quality?: string
 	pollutingValues?: pollutingValuesType
 }
 
@@ -59,7 +59,7 @@ const DataSearch:React.FC = () => {
       try {
         //dati attuali
         const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
-        const { dt, components } = requestPollution.data.list[0]
+        const { dt, components:pollutingValues } = requestPollution.data.list[0]
         const date = new Date(dt * 1000)
         const day = date.getDate()
         let month:string | string[] = ["January",
@@ -79,8 +79,8 @@ const DataSearch:React.FC = () => {
         const hour = date.getHours()
         const minutes = date.getMinutes().toString().length == 1 ? "0" + date.getMinutes().toString() : date.getMinutes().toString()
         const time = `Air quality index recorded on ${month} ${day}, ${year} at ${hour}:${minutes}` 
-        const { aqi } = requestPollution.data.list[0].main
-        setCity({...city, time, quality: aqi, pollutingValues: components})
+        const { aqi:quality } = requestPollution.data.list[0].main
+        setCity({...city, time, quality, pollutingValues})
       } catch (error) {
         console.log("errore pollution data")
       }
@@ -97,6 +97,7 @@ const DataSearch:React.FC = () => {
       {city ? <Chart 
           name={city?.name == city?.state ? `${city?.name + " " + city?.country}` : `${city?.name + " " + city?.state + " " + city?.country}`} 
           time={city.time}
+          quality={city.quality}
           pollutingValues={city.pollutingValues}
         /> : <Chart/>}
       </div>
