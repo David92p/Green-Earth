@@ -36,6 +36,7 @@ const Research:React.FC<ResearchType> = ({ listCity, setListCity, setCity, getLi
 		<div className='container-input'>
 			<input 
 				type="text" 
+				placeholder="Enter a City to analyze"
 				value={input} 
 				className='input-city' 
 				onChange={(e) => toggleInput(e)} 
