@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
-import { Carousel, Card } from '../'
-import type { CardType } from '../../components'
+import { Carousel } from '../';
 // img
 import body1 from "../../assets/images/body-1.png"
 import body2 from "../../assets/images/body-2.mp4"
@@ -105,16 +104,7 @@ const Main:React.FC = () => {
           The main greenhouse gases present in the Earth's atmosphere are Methane (CH₄), Carbon Monoxide (CO), Ozone (O₃) and Nitrogen Dioxide (NO₂).
           <br/> Unfortunately there are many other substances that we unconsciously introduce into our body during the act of breathing. The percentages of all these gases are much lower than those we have just mentioned, despite this, many are polluting gases that can have repercussions on our health and the ecosystem.
         </p>
-        { largeScreen < 1030 ? <Carousel cards={cards}/> 
-        : (
-          <div className='flex justify-center gap-4'>
-            {
-              cards.map((card:CardType) => {
-                return <Card {...card}/>
-              })
-            }
-          </div>
-        )}
+        <Carousel cards={cards} />
       </div>
     </div>
   )
