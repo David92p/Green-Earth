@@ -15,13 +15,13 @@ export type CardsCarousel = {
 const Carousel: React.FC<CardsCarousel> = ({ cards }) => {
   const settings = {
     speed: 500,
-    slidesToShow: cards.length >= 3 ? 3 : cards.length,
+    slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: cards.length >= 2 ? 2 : cards.length,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -36,7 +36,7 @@ const Carousel: React.FC<CardsCarousel> = ({ cards }) => {
   };
 
   return (  
-    <div className="w-3/4 sm:w-[90%] mx-auto">
+    <div>
       <Slider {...settings}>
         {
           cards.map((card) => {

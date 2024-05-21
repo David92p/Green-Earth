@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+div {
+    @apply w-3/4 mx-auto;
+    @apply sm:w-[90%]; /* MEDIUM SCREEN */
+}

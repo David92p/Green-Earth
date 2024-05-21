@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container-btn {
+    @apply bg-mysecondyellow text-mygreen font-bold tracking-wider w-3/4  mx-auto my-6 px-1 py-2 rounded-3xl;
+    @apply sm:w-2/4 sm:py-4; /* MEDIUM SCREEN */
+}

@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container-contact {
+    @apply flex flex-col justify-center items-center bg-myfirstyellow;
+}
+
+.title-contact {
+    @apply text-mygreen text-4xl font-bold tracking-wider text-center;
+    @apply sm:text-5xl sm:pt-6; /* MEDIUM SCREEN */
+}
+
+.form-contact-container {
+    @apply flex flex-col-reverse m-6 rounded-2xl;
+    @apply sm:flex-row sm:m-8; /* MEDIUM SCREEN */
+    @apply 2xl:w-3/5 2xl:h-auto /* LARGE SCREEN */
+}
+
+.contact-graphics {
+    @apply bg-gradient-to-br from-amber-800 to-amber-500 relative rounded-b-2xl;
+    @apply sm:w-2/5 sm:rounded-l-2xl sm:rounded-br-none; /* MEDIUM SCREEN */
+}
+
+.contact-graphics img {
+    @apply w-[100%] h-[100%] object-cover absolute mix-blend-soft-light rounded-b-2xl;
+    @apply sm:rounded-l-2xl sm:rounded-br-none; /* MEDIUM SCREEN */
+}
+
+.contact-graphics div {
+    @apply p-10;
+    @apply sm:h-full; /* MEDIUM SCREEN */
+}
+
+.contact-graphics p {
+    @apply text-slate-100 text-xl text-center font-semibold tracking-wide leading-10;
+    @apply sm:text-2xl sm:py-[50%]; /* MEDIUM SCREEN */
+}
+
+.form-contact {
+    @apply sm:w-3/5 bg-amber-200 p-4 rounded-t-2xl ;
+    @apply sm:py-20 sm:rounded-r-2xl sm:rounded-l-none; /* MEDIUM SCREEN */
+}
+
+.contact-container-input {
+    @apply flex flex-col mt-5 gap-4 mb-6
+}
+
+.contact-container-input input {
+    @apply border border-mygreen focus:border-2 focus:border-mygreen py-1 px-2 text-slate-900 focus:outline-none rounded-md
+}
+
+.contact-container-input textarea {
+    @apply py-1 px-2 h-48 border resize-none text-slate-900 focus:outline-none border-mygreen focus:border-2 focus:border-mygreen rounded-md
+}
+
+.contact-container-termofuse {
+    @apply mt-5 flex justify-center text-slate-900
+}
+
+.contact-container-termofuse input {
+    @apply border border-amber-800 mr-4
+}
+
+.contact-container-termofuse span a {
+    @apply text-mygreen font-semibold
+}
+
+.contact-container-btn {
+    @apply mt-10 w-full flex justify-center text-2xl;
+    @apply sm:text-3xl; /* MEDIUM SCREEN */
+}
+
+.contact-response {
+    @apply py-4 px-2 text-center shadow-2xl rounded-lg text-slate-100 font-bold tracking-wider text-2xl cursor-pointer;
+    @apply sm:mt-10 sm:text-3xl; /* MEDIUM SCREEN */
+}
+
