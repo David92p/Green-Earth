@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container-footer {
+    @apply bg-myfirstyellow pb-2
+}
+
+.footer-links {
+    @apply flex flex-col justify-center items-center gap-2 h-3/5
+}
+
+.footer-links p {
+    @apply text-mygreen text-xl font-bold tracking-wider text-center;
+    @apply sm:text-2xl; /* MEDIUM SCREEN */
+}
+
+.footer-links div {
+    @apply flex justify-center gap-8
+}
+
+.icon {
+    @apply text-2xl;
+    @apply sm:text-3xl; /* MEDIUM SCREEN */
+}
+
+.footer-text {
+    @apply flex flex-col justify-center h-2/5
+}
+
+.footer-text p {
+    @apply text-mygreen font-bold tracking-wider text-center
+}
