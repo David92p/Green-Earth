@@ -3,7 +3,6 @@ import React from 'react'
 import "./card.css"
 
 export type CardType = {
-		key: number
     title: string
     description: string
     img: string
@@ -11,14 +10,15 @@ export type CardType = {
 
 const Card:React.FC<CardType> = ({title, description, img}) => {
   return (
-    <div className='container-card'>
-      <div className='card-top'>
-				<img src={img} alt={title} className='card-img'/>
-			</div>
-      <div className='card-main'>
-				<p className='card-title-main'>{title}</p>
-				<p className='card-main-text text-md'>{description}</p>
-			</div>
+    <div>
+      <div className="card-top">
+        <img src={img} alt={title} />
+      </div>
+      <div className="card-main">
+        <p>{title}</p>
+        <div className='text-md'>{description}</div>
+        <a>Read More</a>
+      </div>
     </div>
   )
 }
