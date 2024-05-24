@@ -19,7 +19,7 @@ const  Arrow = (props: { className: string; onClick: React.MouseEventHandler<HTM
   return (
     <div
       className={className}
-      style={{ display: "block", padding: "6px 4px",  background: "#FFCC31", color: "red",  height: "30px", width:"30px", borderRadius: 100, }}
+      style={{ display: "block", padding: "6px 5px",  background: "#FFCC31", height: "30px", width:"30px", borderRadius: 100, }}
       onClick={onClick}
     />
   );
