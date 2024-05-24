@@ -11,19 +11,26 @@
 }
 
 .card-main {
-    @apply flex flex-col h-[320px] rounded-b-xl bg-mysecondyellow tracking-wider;
+    @apply flex flex-col h-[300px] rounded-b-xl bg-mysecondyellow tracking-wider;
+    @apply sm:h-[250px]; /* MEDIUM SCREEN */
+    @apply 2xl:h-[280px]; /* LARGE SCREEN */
 }
 
 .card-main p {
-    @apply text-xl font-bold text-mygreen text-center py-2;
+    @apply text-lg font-bold text-mygreen text-center px-2 h-[15%];
     @apply 2xl:text-2xl ; /* LARGE SCREEN */
 }
 
-.card-main div {
-    @apply h-4/5 text-center py-4 px-2;
-    @apply 2xl:text-xl; /* LARGE SCREEN */
+.text {
+    @apply text-center px-2 h-[70%];
 }
 
-.card-main a {
-    @apply bg-mygreen w-2/4 text-myfirstyellow text-center text-lg py-1 mx-auto mb-4 rounded-xl 
+.footer {
+    @apply flex justify-center items-center h-[15%] pb-2;
+    @apply sm:pb-4; /* MEDIUM SCREEN */
+}
+
+.footer a {
+    @apply bg-mygreen w-3/4 text-myfirstyellow text-center text-lg py-1 mx-auto rounded-xl;
+    @apply 2xl:w-1/2 2xl:hover:cursor-pointer 2xl:hover:bg-opacity-80 2xl:hover:text-mysecondyellow 2xl:transition-all 2xl:hover:w-3/4 2xl:hover:py-2; /* LARGE SCREEN */
 }
