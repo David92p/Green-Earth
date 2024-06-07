@@ -23,9 +23,11 @@ import Footer from "./footer/Footer";
 import Button from "./global/Button";
 import Card from "./global/Card";
 import Carousel from "./global/Carousel";
+import Loading from "./global/Loading";
 
 // type
 import type { CardType } from "./global/Card";
+import type { cityDataType } from "./dataSearch/DataSearch";
 
-export { Navbar, Header,Introduction, DataSearch, Main, Contact, Footer, Button, Card, Carousel }
-export type { CardType }
+export { Navbar, Header,Introduction, DataSearch, Main, Contact, Footer, Button, Card, Carousel, Loading }
+export type { CardType, cityDataType }
