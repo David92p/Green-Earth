@@ -29,9 +29,9 @@ const Research:React.FC<ResearchType> = ({ listCity, setListCity, setCity, getLi
 	const toggleCity = (city:cityDataType) => {
 		setInput(city?.name == city?.state ? `${city?.name + " " + city?.country}` : `${city?.name + " " + city?.state + " " + city?.country}`)
 		setListCity([])
-		setCity(city)
+		setCity({...city})
 	}
-  
+
 	return (
 		<div className='container-input'>
 			<input 
@@ -43,7 +43,7 @@ const Research:React.FC<ResearchType> = ({ listCity, setListCity, setCity, getLi
 			/>
 			<div className='container-list-toggle'>
 				{ listCity.map((city:cityDataType) => {
-					return <div onClick={() => toggleCity(city)} key={city.id} className='input'>{`${city.name + " " + city.state + " " + city.country}`}</div>
+					return <div key={city.id} onClick={() => toggleCity(city)} className='input'>{`${city.name + " " + city.state + " " + city.country}`}</div>
 				})}
 			</div>
 		</div>
