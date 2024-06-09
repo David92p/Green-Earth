@@ -106,15 +106,18 @@ const Chart:React.FC<ChartType> = ({ type, name, time, quality, pollutingValues,
           color: '#37818A',
           font: {size: largeScreen < 641 ? 18 : (largeScreen < 1030 ? 22 : 30), weight: "bold" as const},
           padding: 0,
-          crossAlign: 'far' as const
+          crossAlign: "center" as const
         },
       },
       x: {
         display: type == "historical" && largeScreen < 641 ? false : true,
         ticks: {
           color: '#37818A',
-          font: {size: largeScreen < 641 ? 18 : (largeScreen < 1030 ? 22 : 30), weight: "bold" as const},
-          padding: 4,
+          font: {size: largeScreen < 641 ? 18 : (
+            type == "historical" ? (largeScreen < 1060 ? 20 : 30) : (largeScreen < 1060 ? 27 : 35)
+          ), weight: "bold" as const },
+          padding: 25,
+          crossAlign: type == "current" ? 'far' as const : "near" as const
         },
       }
     }
