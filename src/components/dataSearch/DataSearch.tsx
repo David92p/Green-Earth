@@ -196,7 +196,7 @@ const DataSearch:React.FC = () => {
     const hour = date.getHours()
     const minutes = date.getMinutes().toString().length == 1 ? "0" + date.getMinutes().toString() : date.getMinutes().toString()
     // Date of measurement of the values
-    const time = type == "current" ? `Air quality index recorded on ${month} ${day}, ${year} at ${hour}:${minutes}` : day + " " + month + " " + year
+    const time = type == "current" ? `Air quality index recorded on ${month} ${day}, ${year} at ${hour}:${minutes}` : day + " " + month + " " + year.toString().slice(-2)
     return time
   }
     
@@ -206,7 +206,7 @@ const DataSearch:React.FC = () => {
 
   return (
     <div className='container-data-search' id='chart'>
-      <div className='bg-myfirstyellow w-full h-[500px] sm:h-[700px]'>
+      <div className='bg-myfirstyellow w-full h-[500px] sm:h-[800px] 2xl:h-[1000px]'>
         {
           error ? (
             <div>ERRORE ...</div>
