@@ -33,12 +33,12 @@ type ChartType = {
   type: "current" | "historical"
 	name: string
 	time: string[]
-  quality: string[]
+  quality: string
 	pollutingValues: pollutingValuesType
   temporalAnalysis?: temporalAnalysisType
 }  
 
-const Chart:React.FC<ChartType> = ({ type, name, time, quality, pollutingValues, temporalAnalysis }) => {
+const Chart:React.FC<ChartType> = ({ type, name, time, quality,  pollutingValues, temporalAnalysis }) => {
 
   const [largeScreen] = useState(window.innerWidth)
 
@@ -78,7 +78,7 @@ const Chart:React.FC<ChartType> = ({ type, name, time, quality, pollutingValues,
       },
       subtitle: {
         display: true,
-        text: type == "current" ? [time[0], quality[0]] : temporalAnalysis &&  temporalAnalysis.analysisPeriod.charAt(0).toUpperCase() + temporalAnalysis.analysisPeriod.slice(1) +" analysis",
+        text: type == "current" ? [time[0], quality] : temporalAnalysis &&  temporalAnalysis.analysisPeriod.charAt(0).toUpperCase() + temporalAnalysis.analysisPeriod.slice(1) +" analysis",
         color: "#37818A",
         font: {
           size: largeScreen < 641 ? 20 : (largeScreen < 1030 ? 30 : 40),
@@ -105,8 +105,8 @@ const Chart:React.FC<ChartType> = ({ type, name, time, quality, pollutingValues,
         ticks: {
           color: '#37818A',
           font: {size: largeScreen < 641 ? 18 : (largeScreen < 1030 ? 22 : 30), weight: "bold" as const},
-          padding: 0,
-          crossAlign: "center" as const
+          padding: type == "current" ? 0 : 15,
+          crossAlign: type == "current" ? "far" as const : "center" as const
         },
       },
       x: {
@@ -172,50 +172,28 @@ const Chart:React.FC<ChartType> = ({ type, name, time, quality, pollutingValues,
         minBarLength: 20,
       }]
     ) : (
-      [{
-        label: "µg/m³",
-        data: pollutingValues && temporalAnalysis && pollutingValues?.map((element) => element[temporalAnalysis?.substance]),
-        // borderColor: [
-        //   'rgba(255, 99, 132, 0.4)',
-        //   'rgba(255, 159, 64, 0.4)',
-        //   'rgba(255, 205, 86, 0.4)',
-        //   'rgba(75, 192, 192, 0.4)',
-        //   'rgba(54, 162, 235, 0.4)',
-        //   'rgba(153, 102, 255, 0.4)',
-        //   'rgba(255, 99, 132, 0.4)',
-        //   'rgba(75, 192, 192, 0.4)',
-        // ],
-        // hoverBorderColor: [
-        //   'rgba(255, 99, 132, 0.8)',
-        //   'rgba(255, 159, 64, 0.8)',
-        //   'rgba(255, 205, 86, 0.8)',
-        //   'rgba(75, 192, 192, 0.8)',
-        //   'rgba(54, 162, 235, 0.8)',
-        //   'rgba(153, 102, 255, 0.8)',
-        //   'rgba(255, 99, 132, 0.8)',
-        //   'rgba(75, 192, 192, 0.8)',
-        // ],
-        // backgroundColor: [
-        //   'rgba(255, 99, 132, 0.4)',
-        //   'rgba(255, 159, 64, 0.4)',
-        //   'rgba(255, 205, 86, 0.4)',
-        //   'rgba(75, 192, 192, 0.4)',
-        //   'rgba(54, 162, 235, 0.4)',
-        //   'rgba(153, 102, 255, 0.4)',
-        //   'rgba(255, 99, 132, 0.4)',
-        //   'rgba(75, 192, 192, 0.4)',
-        // ],
-        // hoverBackgroundColor: [
-        //   'rgba(255, 99, 132, 0.8)',
-        //   'rgba(255, 159, 64, 0.8)',
-        //   'rgba(255, 205, 86, 0.8)',
-        //   'rgba(75, 192, 192, 0.8)',
-        //   'rgba(54, 162, 235, 0.8)',
-        //   'rgba(153, 102, 255, 0.8)',
-        //   'rgba(255, 99, 132, 0.8)',
-        //   'rgba(75, 192, 192, 0.8)',
-        // ],
-      }]
+      [
+        {
+          label: "µg/m³",
+          data: pollutingValues && temporalAnalysis && pollutingValues?.map((element) => element[temporalAnalysis?.substance]),
+          pointBorderWidth: largeScreen < 1030 ? 7 : 15,
+          borderColor: temporalAnalysis && (
+            temporalAnalysis.substance == "co" ? 'rgb(255, 99, 132)' : (
+              temporalAnalysis.substance == "no" ? 'rgb(255, 159, 64)' : (
+                temporalAnalysis.substance == "no2" ? 'rgb(255, 205, 86)' : (
+                  temporalAnalysis.substance == "o3" ? 'rgb(75, 192, 192)' : (
+                    temporalAnalysis.substance == "so2" ? 'rgb(54, 162, 235)' : (
+                      temporalAnalysis.substance == "pm2_5" ? 'rgb(153, 102, 255)' : (
+                        temporalAnalysis.substance == "pm10" ? 'rgb(255, 99, 132)' : 'rgba(75, 192, 192)'
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          ),
+        }
+      ]
     ) 
   };
 
