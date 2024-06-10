@@ -28,7 +28,7 @@ export type cityDataType = {
   lat: number 
   lon: number
   time: string[]
-	quality: string[]
+	quality: string
 	pollutingValues: pollutingValuesType
 }
 
@@ -42,7 +42,7 @@ const DataSearch:React.FC = () => {
     lat: 51.5073219 ,
     lon: -0.1276474,
     time: [],
-    quality: [],
+    quality: "",
     pollutingValues: null
   })
   // const [pollutingSubstance, setPollutingSubstance] = useState<"co" | "nh3" | "no" | "no2" | "o3" | "pm2_5" | "pm10" | "so2">("co")
@@ -89,7 +89,7 @@ const DataSearch:React.FC = () => {
       setCity({
         ...city, 
         time: [getDate(dt, "current")], 
-        quality: [quality], 
+        quality, 
         pollutingValues: [pollutingValues]
       })
     } catch {
@@ -103,16 +103,15 @@ const DataSearch:React.FC = () => {
     try {
       setLoading(true)
       const today = Math.floor((new Date().getTime() / 1000))
-      let data:[string[], string[], pollutingValuesType] | null = null
+      let data:[string[], pollutingValuesType] | null = null
       switch (type) {
         case "Weekly": {
           const last7Days = Math.floor((new Date().setDate(new Date().getDate() - 7) /  1000)) 
           const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last7Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
           const response =  requestPollution.data.list
           const days:string[] = [response[27].dt,response[51].dt,response[75].dt,response[99].dt,response[123].dt,response[147].dt,response[response.length - 1].dt].map((date:number) => getDate(date, "historical"))
-          const qualityIndex:string[] = [response[27].main.aqi,response[51].main.aqi,response[75].main.aqi,response[99].main.aqi,response[123].main.aqi,response[147].main.aqi,response[response.length - 1].main.aqi]
           const pollutingValues:pollutingValuesType = [response[27].components,response[51].components,response[75].components,response[99].components,response[123].components,response[147].components,response[response.length - 1].components]
-          data =  [days, qualityIndex, pollutingValues]
+          data =  [days, pollutingValues]
           break
         }
         case "Monthly": {
@@ -120,9 +119,8 @@ const DataSearch:React.FC = () => {
           const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last30Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
           const response = requestPollution.data.list
           const days:string[] = [response[2].dt, response[response.length - (20*24)].dt,  response[response.length - (16*24)].dt, response[response.length - (12*24)].dt, response[response.length - (8*24)].dt, response[response.length - (4*24)].dt, response[response.length - 1].dt].map((date:number) => getDate(date, "historical"))
-          const qualityIndex:string[] = [response[2].main.aqi, response[response.length - (20*24)].main.aqi, response[response.length - (16*24)].main.aqi, response[response.length - (12*24)].main.aqi, response[response.length - (8*24)].main.aqi, response[response.length - (4*24)].main.aqi, response[response.length - 1].main.aqi]
           const pollutingValues:pollutingValuesType = [response[2].components, response[response.length - (20*24)].components, response[response.length - (16*24)].components, response[response.length - (12*24)].components, response[response.length - (8*24)].components, response[response.length - (4*24)].components, response[response.length - 1].components]
-          data =  [days, qualityIndex, pollutingValues]
+          data =  [days, pollutingValues]
           break
         }
         case "Quarterly": {
@@ -130,9 +128,8 @@ const DataSearch:React.FC = () => {
           const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last90Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
           const response =  requestPollution.data.list
           const days:string[] = [response[2].dt, response[response.length - (75*24)].dt, response[response.length - (60*24)].dt, response[response.length - (45*24)].dt, response[response.length - (30*24)].dt, response[response.length - (15*24)].dt, response[response.length - 1].dt].map((date:number) => getDate(date, "historical"))
-          const qualityIndex:string[] = [response[2].main.aqi, response[response.length - (75*24)].main.aqi, response[response.length - (60*24)].main.aqi, response[response.length - (45*24)].main.aqi, response[response.length - (30*24)].main.aqi, response[response.length - (15*24)].main.aqi, response[response.length - 1].main.aqi]
           const pollutingValues:pollutingValuesType = [response[2].components, response[response.length - (75*24)].components, response[response.length - (60*24)].components, response[response.length - (45*24)].components, response[response.length - (30*24)].components, response[response.length - (15*24)].components, response[response.length - 1].components]
-          data =  [days, qualityIndex, pollutingValues]
+          data =  [days, pollutingValues]
           break
         }
         case "1/2 Year": {
@@ -140,9 +137,8 @@ const DataSearch:React.FC = () => {
           const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last180Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
           const response =  requestPollution.data.list
           const days:string[] = [response[2].dt, response[response.length - (150*24)].dt,  response[response.length - (120*24)].dt, response[response.length - (90*24)].dt, response[response.length - (60*24)].dt, response[response.length - (30*24)].dt, response[response.length - 1].dt].map((date:number) => getDate(date, "historical"))
-          const qualityIndex:string[] = [response[2].main.aqi, response[response.length - (150*24)].main.aqi, response[response.length - (120*24)].main.aqi, response[response.length - (90*24)].main.aqi, response[response.length - (60*24)].main.aqi, response[response.length - (30*24)].main.aqi, response[response.length - 1].main.aqi]
           const pollutingValues:pollutingValuesType = [response[2].components, response[response.length - (150*24)].components, response[response.length - (120*24)].components, response[response.length - (90*24)].components, response[response.length - (60*24)].components, response[response.length - (30*24)].components, response[response.length - 1].components]
-          data =  [days, qualityIndex, pollutingValues]
+          data =  [days, pollutingValues]
           break
         }
         case "1 Year": {
@@ -150,9 +146,8 @@ const DataSearch:React.FC = () => {
           const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last365Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
           const response =  requestPollution.data.list
           const days:string[] = [response[2].dt, response[response.length - (305*24)].dt,  response[response.length - (245*24)].dt, response[response.length - (185*24)].dt, response[response.length - (125*24)].dt, response[response.length - (65*24)].dt, response[response.length - 1].dt].map((date:number) => getDate(date, "historical"))
-          const qualityIndex:string[] = [response[2].main.aqi, response[response.length - (305*24)].main.aqi, response[response.length - (245*24)].main.aqi, response[response.length - (185*24)].main.aqi, response[response.length - (125*24)].main.aqi, response[response.length - (65*24)].main.aqi, response[response.length - 1].main.aqi]
           const pollutingValues:pollutingValuesType = [response[2].components, response[response.length - (305*24)].components, response[response.length - (245*24)].components, response[response.length - (185*24)].components, response[response.length - (125*24)].components, response[response.length - (65*24)].components, response[response.length - 1].components]
-          data =  [days, qualityIndex, pollutingValues]
+          data =  [days, pollutingValues]
           break
         }
         default: 
@@ -164,8 +159,7 @@ const DataSearch:React.FC = () => {
         return {
           ...prev,
           time: data[0],
-          quality: data[1],
-          pollutingValues: data[2]
+          pollutingValues: data[1]
         }
       })
     } catch (error) {
@@ -244,48 +238,49 @@ const DataSearch:React.FC = () => {
                   onClick={() => setTemporalAnalysis((prev) => {
                     return {...prev, substance: "co"}
                   })} 
-                  className={`border-2 border-mygreen bg-mysecondyellow rounded-full transition-all ${temporalAnalysis.substance == "co" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>co
-                </button>
-                <button 
-                  onClick={() => setTemporalAnalysis((prev) => {
-                    return {...prev, substance: "nh3"}
-                  })}                 
-                  className={`border-2 border-mygreen bg-mysecondyellow w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "nh3" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>nh3
+                  className={`bg-[#FF6384] rounded-full transition-all ${temporalAnalysis.substance == "co" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>co
                 </button>
                 <button 
                   onClick={() => setTemporalAnalysis((prev) => {
                     return {...prev, substance: "no"}
                   })}
-                  className={`border-2 border-mygreen bg-mysecondyellow w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "no" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>no</button>
+                  className={`bg-[#FF9F40] w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "no" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>no
+                </button>
                 <button 
                   onClick={() => setTemporalAnalysis((prev) => {
                     return {...prev, substance: "no2"}
                   })}
-                  className={`border-2 border-mygreen bg-mysecondyellow w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "no2" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>no2
+                  className={`bg-[#FFCD56] w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "no2" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>no2
                 </button>
                 <button 
                   onClick={() => setTemporalAnalysis((prev) => {
                     return {...prev, substance: "o3"}
                   })}
-                  className={`border-2 border-mygreen bg-mysecondyellow w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "o3" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>o3
-                </button>
-                <button 
-                  onClick={() => setTemporalAnalysis((prev) => {
-                    return {...prev, substance: "pm2_5"}
-                  })}
-                  className={`border-2 border-mygreen bg-mysecondyellow rounded-full transition-all ${temporalAnalysis.substance == "pm2_5" ? "opacity-100 w-16 h-16 font-extrabold text-lg tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>pm{temporalAnalysis.substance == "pm2_5" ? <br/> : null}2.5
-                </button>
-                <button 
-                  onClick={() => setTemporalAnalysis((prev) => {
-                    return {...prev, substance: "pm10"}
-                  })}
-                  className={`border-2 border-mygreen bg-mysecondyellow w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "pm10" ? "opacity-100 w-16 h-16 font-extrabold text-lg tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>pm{temporalAnalysis.substance == "pm10" ? <br/> : null}10
+                  className={`bg-[#4BC0C0] w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "o3" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>o3
                 </button>
                 <button 
                   onClick={() => setTemporalAnalysis((prev) => {
                     return {...prev, substance: "so2"}
                   })}
-                  className={`border-2 border-mygreen bg-mysecondyellow w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "so2" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>so2
+                  className={`bg-[#36A2EB] w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "so2" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>so2
+                </button>
+                <button 
+                  onClick={() => setTemporalAnalysis((prev) => {
+                    return {...prev, substance: "pm2_5"}
+                  })}
+                  className={`bg-[#9966FF] rounded-full transition-all ${temporalAnalysis.substance == "pm2_5" ? "opacity-100 w-16 h-16 font-extrabold text-lg tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>pm{temporalAnalysis.substance == "pm2_5" ? <br/> : null}2.5
+                </button>
+                <button 
+                  onClick={() => setTemporalAnalysis((prev) => {
+                    return {...prev, substance: "pm10"}
+                  })}
+                  className={`bg-[#FF6384] w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "pm10" ? "opacity-100 w-16 h-16 font-extrabold text-lg tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>pm{temporalAnalysis.substance == "pm10" ? <br/> : null}10
+                </button>
+                <button 
+                  onClick={() => setTemporalAnalysis((prev) => {
+                    return {...prev, substance: "nh3"}
+                  })}                 
+                  className={`bg-[#4BC0C0] w-14 h-14 rounded-full transition-all ${temporalAnalysis.substance == "nh3" ? "opacity-100 w-16 h-16 font-extrabold text-2xl tracking-wider" : "opacity-75 w-14 h-14 text-lg"}`}>nh3
                 </button>
               </div>
             )
