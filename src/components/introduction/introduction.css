@@ -21,7 +21,7 @@
 .introduction-text {
     @apply text-center text-lg text-slate-900 tracking-wider px-4;
     @apply sm:text-3xl sm:px-6; /* medium screen */
-    @apply 2xl:text-2xl; /* large screen */
+    @apply 2xl:text-2xl 2xl:my-8; /* large screen */
 }
 
 .introduction-img {
