@@ -9,9 +9,15 @@ const Footer:React.FC = () => {
       <div className='footer-links'>
         <p>Follow Me</p>
         <div>
-          <FontAwesomeIcon icon={faLinkedin} style={{color: "#0e76a8",}} className='icon'/>
-          <FontAwesomeIcon icon={faGithub} style={{color: "#171515",}} className='icon'/>
-          <FontAwesomeIcon icon={faFacebook} style={{color: "#3b5998",}} className='icon'/>
+          <a href="https://www.linkedin.com/in/davide-panetta?original_referer=" target="_blank">
+            <FontAwesomeIcon icon={faLinkedin} style={{color: "#0e76a8",}} className='icon'/>
+          </a>
+          <a href="https://github.com/David92p" target="_blank">
+            <FontAwesomeIcon icon={faGithub} style={{color: "#171515",}} className='icon'/>
+          </a>
+          <a href="" target="_blank">
+            <FontAwesomeIcon icon={faFacebook} style={{color: "#3b5998",}} className='icon'/>
+          </a>
         </div>
       </div>
       <div className='footer-text'>
