@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.container-pending {
+    @apply flex justify-center items-center h-full w-full
+}
+
+.container-pending img {
+    @apply object-contain;
+    @apply sm:w-1/3 /* MEDIUM SCREEN */
+}
