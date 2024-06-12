@@ -192,7 +192,7 @@ const DataSearch:React.FC = () => {
     const hour = date.getHours()
     const minutes = date.getMinutes().toString().length == 1 ? "0" + date.getMinutes().toString() : date.getMinutes().toString()
     // Date of measurement of the values
-    const time = type == "current" ? `Air quality index recorded on ${month} ${day}, ${year} at ${hour}:${minutes}` : day + " " + month + " " + year.toString().slice(-2)
+    const time = type == "current" ? `Air quality index recorded on ${month} ${day}, ${year} at ${hour}:${minutes}` : day + " " + month.substring(0, 3) + " " + year.toString().slice(-2)
     return time
   }
     
