@@ -176,7 +176,7 @@ const Chart:React.FC<ChartType> = ({ type, name, time, quality,  pollutingValues
         {
           label: "µg/m³",
           data: pollutingValues && temporalAnalysis && pollutingValues?.map((element) => element[temporalAnalysis?.substance]),
-          pointBorderWidth: largeScreen < 1030 ? 7 : 15,
+          pointBorderWidth: largeScreen < 1030 ? 10 : 15,
           borderColor: temporalAnalysis && (
             temporalAnalysis.substance == "co" ? 'rgb(255, 99, 132)' : (
               temporalAnalysis.substance == "no" ? 'rgb(255, 159, 64)' : (
