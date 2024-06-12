@@ -55,7 +55,7 @@ const DataSearch:React.FC = () => {
   const getListCity = async (par:string) => {
     // Api ricerca lista type cityType con relativa latitudine e longitudine
     try {
-      const requestCoordinates = await axios(`http://api.openweathermap.org/geo/1.0/direct?q=${par}&limit=5&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
+      const requestCoordinates = await axios(`https://api.openweathermap.org/geo/1.0/direct?q=${par}&limit=5&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
       setListCity(
         requestCoordinates.data.map((result:cityDataType) => {
           const { name, country, state="", lat, lon } = result
@@ -82,7 +82,7 @@ const DataSearch:React.FC = () => {
       setLoading(true)
       setError(false)
       //dati attuali
-      const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
+      const requestPollution = await axios(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
       const { dt, components:pollutingValues } = requestPollution.data.list[0]
       // Quality air 
       const { aqi:quality } = requestPollution.data.list[0].main 
@@ -109,7 +109,7 @@ const DataSearch:React.FC = () => {
       switch (type) {
         case "Weekly": {
           const last7Days = Math.floor((new Date().setDate(new Date().getDate() - 7) /  1000)) 
-          const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last7Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
+          const requestPollution = await axios(`https://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last7Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
           const response =  requestPollution.data.list
           const days:string[] = [response[27].dt,response[51].dt,response[75].dt,response[99].dt,response[123].dt,response[147].dt,response[response.length - 1].dt].map((date:number) => getDate(date, "historical"))
           const pollutingValues:pollutingValuesType = [response[27].components,response[51].components,response[75].components,response[99].components,response[123].components,response[147].components,response[response.length - 1].components]
@@ -118,7 +118,7 @@ const DataSearch:React.FC = () => {
         }
         case "Monthly": {
           const last30Days = Math.floor((new Date().setDate(new Date().getDate() - 30) /  1000)) 
-          const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last30Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
+          const requestPollution = await axios(`https://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last30Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
           const response = requestPollution.data.list
           const days:string[] = [response[2].dt, response[response.length - (20*24)].dt,  response[response.length - (16*24)].dt, response[response.length - (12*24)].dt, response[response.length - (8*24)].dt, response[response.length - (4*24)].dt, response[response.length - 1].dt].map((date:number) => getDate(date, "historical"))
           const pollutingValues:pollutingValuesType = [response[2].components, response[response.length - (20*24)].components, response[response.length - (16*24)].components, response[response.length - (12*24)].components, response[response.length - (8*24)].components, response[response.length - (4*24)].components, response[response.length - 1].components]
@@ -127,7 +127,7 @@ const DataSearch:React.FC = () => {
         }
         case "Quarterly": {
           const last90Days = Math.floor((new Date().setDate(new Date().getDate() - 90) /  1000)) 
-          const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last90Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
+          const requestPollution = await axios(`https://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last90Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
           const response =  requestPollution.data.list
           const days:string[] = [response[2].dt, response[response.length - (75*24)].dt, response[response.length - (60*24)].dt, response[response.length - (45*24)].dt, response[response.length - (30*24)].dt, response[response.length - (15*24)].dt, response[response.length - 1].dt].map((date:number) => getDate(date, "historical"))
           const pollutingValues:pollutingValuesType = [response[2].components, response[response.length - (75*24)].components, response[response.length - (60*24)].components, response[response.length - (45*24)].components, response[response.length - (30*24)].components, response[response.length - (15*24)].components, response[response.length - 1].components]
@@ -136,7 +136,7 @@ const DataSearch:React.FC = () => {
         }
         case "1/2 Year": {
           const last180Days = Math.floor((new Date().setDate(new Date().getDate() - 180) /  1000)) 
-          const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last180Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
+          const requestPollution = await axios(`https://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last180Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
           const response =  requestPollution.data.list
           const days:string[] = [response[2].dt, response[response.length - (150*24)].dt,  response[response.length - (120*24)].dt, response[response.length - (90*24)].dt, response[response.length - (60*24)].dt, response[response.length - (30*24)].dt, response[response.length - 1].dt].map((date:number) => getDate(date, "historical"))
           const pollutingValues:pollutingValuesType = [response[2].components, response[response.length - (150*24)].components, response[response.length - (120*24)].components, response[response.length - (90*24)].components, response[response.length - (60*24)].components, response[response.length - (30*24)].components, response[response.length - 1].components]
@@ -145,7 +145,7 @@ const DataSearch:React.FC = () => {
         }
         case "1 Year": {
           const last365Days = Math.floor((new Date().setDate(new Date().getDate() - 365) /  1000)) 
-          const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last365Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
+          const requestPollution = await axios(`https://api.openweathermap.org/data/2.5/air_pollution/history?lat=${city.lat}&lon=${city.lon}&start=${last365Days}&end=${today}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
           const response =  requestPollution.data.list
           const days:string[] = [response[2].dt, response[response.length - (305*24)].dt,  response[response.length - (245*24)].dt, response[response.length - (185*24)].dt, response[response.length - (125*24)].dt, response[response.length - (65*24)].dt, response[response.length - 1].dt].map((date:number) => getDate(date, "historical"))
           const pollutingValues:pollutingValuesType = [response[2].components, response[response.length - (305*24)].components, response[response.length - (245*24)].components, response[response.length - (185*24)].components, response[response.length - (125*24)].components, response[response.length - (65*24)].components, response[response.length - 1].components]
