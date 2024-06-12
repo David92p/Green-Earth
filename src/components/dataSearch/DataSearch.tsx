@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Research from './Research'
 import Chart from './Chart'
-import { Button, Loading } from '..'
+import { Button, Pending } from '..'
 
 export type pollutingValuesType = null | {
 	co: number,
@@ -80,6 +80,7 @@ const DataSearch:React.FC = () => {
   const getCurrentPollutionData = async (lat:number, lon:number):Promise<cityDataType | void> => {
     try {
       setLoading(true)
+      setError(false)
       //dati attuali
       const requestPollution = await axios(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_APP_OPENWEATHER_KEY}`)
       const { dt, components:pollutingValues } = requestPollution.data.list[0]
@@ -102,6 +103,7 @@ const DataSearch:React.FC = () => {
   const getHistoricalPollutionData = async (type: "Weekly" | "Monthly" | "Quarterly" | "1/2 Year" | "1 Year" ) => {
     try {
       setLoading(true)
+      setError(false)
       const today = Math.floor((new Date().getTime() / 1000))
       let data:[string[], pollutingValuesType] | null = null
       switch (type) {
@@ -203,9 +205,9 @@ const DataSearch:React.FC = () => {
       <div className='bg-myfirstyellow w-full h-[500px] sm:h-[800px] 2xl:h-[1000px]'>
         {
           error ? (
-            <div>ERRORE ...</div>
+            <Pending type='error'/>
           ) : (
-            loading ? <Loading /> : (
+            loading ? <Pending type='loading'/> : (
               city.pollutingValues && city.pollutingValues.length == 1 ? (
                 <Chart 
                   type={"current"}
