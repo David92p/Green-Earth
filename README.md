@@ -51,7 +51,7 @@
    ```
 3. Add your access keys
    ```sh
-   - Register on the [WeatherAPI](https://openweathermap.org/api) website and get your access key
+   - Register on the [Project Link](https://github.com/David92p/Green-Earth) [WeatherAPI](https://openweathermap.org/api) website and get your access key
    - Create the .env file in the root directory
    - Add an environment variable with this name and your private key
      VITE_APP_OPENWEATHER_KEY = "YOUR WeatherAPI KEY"
