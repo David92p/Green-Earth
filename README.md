@@ -52,16 +52,15 @@
 3. Add your access keys
    ```sh
    - Register on the WeatherAPI website and get your access key
+   - Register and obtain the keys to use the contact form from EmailJS (Not necessary for the complete functioning of the web page)
    - Create the .env file in the root directory
    - Add an environment variable with this name and your private key
      VITE_APP_OPENWEATHER_KEY = "YOUR WeatherAPI KEY"
-   - Register and obtain the keys to use the contact form from EmailJS (Not necessary for the complete functioning of the web page)
-   - Add environment variables with this name and your private key
      VITE_APP_SERVICE_ID = "YOUR EMAILJS KEY SERVICE ID"
      VITE_APP_TEMPLATE_ID = "YOUR EMAILJS KEY TEMPLATE ID"
      VITE_APP_PUBLIC_KEY = "YOUR EMAILJS KEY PUBLIC KEY"
    ```
-   [WeatherAPI](https://openweathermap.org/api)
+   [WeatherAPI](https://openweathermap.org/api) <br />
    [EmailJS](https://www.emailjs.com/) 
 5. Run
    ```sh
