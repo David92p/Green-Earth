@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-     <img src="src/assets/images/logo.png" alt="Logo" width="300" height="350">
+     <img src="src/assets/images/logo.png" alt="Logo" width="300" height="300">
 
 <h2 align="center">Green Earth</h2>
 <br/>
@@ -97,7 +97,10 @@
     <li>
       <h4>Projects and Initiatives</h4>
       <div align="center">
-        <img src="" alt="Projects and Initiatives" width="600" heigth="300">
+        <img src="" alt="Projects and Initiatives 1" width="600" heigth="300">
+      </div>
+          <div align="center">
+        <img src="" alt="Projects and Initiatives 2" width="600" heigth="300">
       </div>
       <br />
       <ul>
