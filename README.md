@@ -61,7 +61,9 @@
      VITE_APP_PUBLIC_KEY = "YOUR EMAILJS KEY PUBLIC KEY"
    ```
    [WeatherAPI](https://openweathermap.org/api) <br />
-   [EmailJS](https://www.emailjs.com/) 
+   [EmailJS](https://www.emailjs.com/)
+    <br />
+   <br />
 5. Run
    ```sh
    npm run dev
