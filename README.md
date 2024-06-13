@@ -51,21 +51,23 @@
    ```
 3. Add your access keys
    ```sh
-   - Register on the [Project Link](https://github.com/David92p/Green-Earth) [WeatherAPI](https://openweathermap.org/api) website and get your access key
+   - Register on the WeatherAPI website and get your access key
    - Create the .env file in the root directory
    - Add an environment variable with this name and your private key
      VITE_APP_OPENWEATHER_KEY = "YOUR WeatherAPI KEY"
-   - Register and obtain the keys to use the contact form from [EmailJS](https://www.emailjs.com/) (Not necessary for the complete functioning of the web page)
+   - Register and obtain the keys to use the contact form from EmailJS (Not necessary for the complete functioning of the web page)
    - Add environment variables with this name and your private key
      VITE_APP_SERVICE_ID = "YOUR EMAILJS KEY SERVICE ID"
      VITE_APP_TEMPLATE_ID = "YOUR EMAILJS KEY TEMPLATE ID"
      VITE_APP_PUBLIC_KEY = "YOUR EMAILJS KEY PUBLIC KEY"
    ```
-4. Run
+   [WeatherAPI](https://openweathermap.org/api)
+   [EmailJS](https://www.emailjs.com/) 
+5. Run
    ```sh
    npm run dev
    ```
-5. Press "o" or click the link in the terminal.
+6. Press "o" or click the link in the terminal.
 
 ## Usage
 
