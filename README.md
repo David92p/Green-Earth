@@ -76,7 +76,7 @@
     <li>
       <h4>Introduction</h4>
       <div align="center">
-        <img src="" alt="Introduction" align="center" width="600" heigth="300">
+        <img src="src/assets/read-me-images/introduction.png" alt="Introduction" align="center" width="600" heigth="300">
       </div>
       <br />
       <ul>
@@ -88,7 +88,11 @@
     <li>
       <h4>Analysis and Data</h4>
       <div align="center">
-        <img src="" alt="Analysis and Data" width="600" heigth="300">
+        <img src="src/assets/read-me-images/Analysis-and-Data-1.png" alt="Analysis and Data" width="600" heigth="300">
+      </div>
+      <br />
+       <div align="center">
+        <img src="src/assets/read-me-images/Analysis-and-Data-2.png" alt="Analysis and Data" width="600" heigth="300">
       </div>
       <br />
       <ul>
@@ -100,7 +104,7 @@
     <li>
       <h4>Projects and Initiatives</h4>
       <div align="center">
-        <img src="" alt="Projects and Initiatives 1" width="600" heigth="300">
+        <img src="src/assets/read-me-images/detailed-explanation-of-pollutants.png" alt="Projects and Initiatives 1" width="600" heigth="300">
       </div>
           <div align="center">
         <img src="" alt="Projects and Initiatives 2" width="600" heigth="300">
@@ -115,7 +119,7 @@
     <li>
       <h4>Detailed explanation of pollutants.</h4>
       <div align="center">
-        <img src="" alt="Detailed explanation of pollutants." width="600" heigth="300">
+        <img src="src/assets/read-me-images/detailed-explanation-of-pollutants.png" alt="Detailed explanation of pollutants." width="600" heigth="300">
       </div>
       <br />
       <ul>
@@ -126,7 +130,7 @@
     <li>
       <h4>Contact</h4>
       <div align="center">
-        <img src="src/assets/images/contact.png" alt="results" width="600" heigth="300">
+        <img src="src/assets/read-me-images/contact.png" alt="results" width="600" heigth="300">
       </div>
       <br />
       <ul>
