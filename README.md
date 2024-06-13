@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-     <img src="src/assets/images/logo.png" alt="Logo" width="300" height="300">
+     <img src="src/assets/images/logo.png" alt="Logo" width="300" height="150">
 
 <h2 align="center">Green Earth</h2>
 <br/>
