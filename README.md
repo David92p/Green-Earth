@@ -104,10 +104,7 @@
     <li>
       <h4>Projects and Initiatives</h4>
       <div align="center">
-        <img src="src/assets/read-me-images/detailed-explanation-of-pollutants.png" alt="Projects and Initiatives 1" width="600" heigth="300">
-      </div>
-          <div align="center">
-        <img src="" alt="Projects and Initiatives 2" width="600" heigth="300">
+        <img src="src/assets/read-me-images/project-and-initiatives.png" alt="Projects and Initiatives 1" width="600" heigth="300">
       </div>
       <br />
       <ul>
