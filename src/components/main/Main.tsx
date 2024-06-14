@@ -101,7 +101,7 @@ const Main:React.FC = () => {
       <div className='container-card-timeline'>
         <p className='card-timeline-title'>Air Pollution Levels</p>
         <p className='card-timeline-subtitle'>
-          The main greenhouse gases present in the Earth's atmosphere are Methane (CH₄), Carbon Monoxide (CO), Ozone (O₃) and Nitrogen Dioxide (NO₂).
+          The main greenhouse gases present in the Earth's atmosphere are Carbon Monoxide (CO), Nitrogen Monoxide (NO) and Nitrogen Dioxide (NO₂), and finally dust particles smaller than 10.
           <br/> Unfortunately there are many other substances that we unconsciously introduce into our body during the act of breathing. The percentages of all these gases are much lower than those we have just mentioned, despite this, many are polluting gases that can have repercussions on our health and the ecosystem.
         </p>
         <Carousel cards={cards} />
