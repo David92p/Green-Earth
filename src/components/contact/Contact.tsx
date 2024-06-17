@@ -5,6 +5,8 @@ import contact1 from "../../assets/images/contact-1.jpg"
 import "./contact.css"
 import { Button } from "../index"
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLeaf, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const Contact:React.FC = () => {
   
@@ -45,7 +47,7 @@ const Contact:React.FC = () => {
   };
 
   return (
-    <div className="container-contact" id="contact">
+    <div className="container-contact">
       <p className='title-contact'>Contact</p>
       <div className='form-contact-container'>
         <div className="contact-graphics">
@@ -131,14 +133,20 @@ const Contact:React.FC = () => {
               onClick={() => setSuccess(false)}
               className="contact-response bg-mygreen my-[50%]"
             >
-              Success
+              <span className='text-mysecondyellow'>Success!{"  "}<FontAwesomeIcon icon={faLeaf} style={{color: "#63E6BE"}} size='xl' /></span>
+              <div>
+                Thank you for contacting us, we will be happy to respond as soon as possible. <br/> See you soon from GreenEarth!
+              </div>
             </div>
           ) : (
             <div
               onClick={() => setError(false)}
               className="contact-response bg-red-400 my-[50%]"
             >
-              Error
+              <span className='text-mysecondyellow'>Error!{"  "}<FontAwesomeIcon icon={faXmark} style={{color: "#ffcc31"}} size='xl' /></span>
+              <div>
+                We are very sorry but at the moment it seems that something has gone wrong. <br/> Please try again later!
+              </div>
             </div>
           )}
         </div>
