@@ -14,7 +14,7 @@ import "./main.css"
 const Main:React.FC = () => {
   const [largeScreen] = useState(window.innerWidth)
   return (
-    <div className='container-main' id='eugreendeal'>
+    <div className='container-main' >
       <div className='container-video'> 
         <div className='container-text-video'>
           <span className='text-video'>Always aiming<br/>for tomorrow's possibilities</span>
