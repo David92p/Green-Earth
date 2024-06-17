@@ -21,8 +21,8 @@ const Footer:React.FC = () => {
         </div>
       </div>
       <div className='footer-text'>
-        <p className='text-md'>© 2024 Green Earth. All rights reserved.</p>
-        <p className='text-lg'>Created by Davide Panetta.</p>
+        <p className='text-lg'>© 2024 Green Earth. All rights reserved.</p>
+        <p className='text-xl'>Created by Davide Panetta.</p>
       </div>
     </div>
   )
