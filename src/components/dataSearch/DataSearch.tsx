@@ -201,7 +201,7 @@ const DataSearch:React.FC = () => {
   }, [])
 
   return (
-    <div className='container-data-search' id='chart'>
+    <div className='container-data-search'>
       <div className='bg-myfirstyellow w-full h-[500px] sm:h-[800px] 2xl:h-[1000px]'>
         {
           error ? (
