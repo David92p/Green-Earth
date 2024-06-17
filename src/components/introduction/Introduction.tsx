@@ -11,7 +11,7 @@ const Introduction:React.FC = () => {
   const [largeScreen] = useState(window.innerWidth)
   
   return (
-    <div className='container-introduction' id='introduction'>
+    <div className='container-introduction'>
       <div className='section-introduction'>
         <div className='section-introduction-text'>
           <p className='introduction-title'>Air{largeScreen > 1030 ? <br/> : " "}Pollutants</p>
