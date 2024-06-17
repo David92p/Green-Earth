@@ -72,7 +72,16 @@
 }
 
 .contact-response {
-    @apply py-4 px-2 text-center shadow-2xl rounded-lg text-slate-100 font-bold tracking-wider text-2xl cursor-pointer;
-    @apply sm:mt-10 sm:text-3xl; /* MEDIUM SCREEN */
+    @apply flex flex-col gap-4 py-4 px-2 text-center shadow-2xl rounded-lg text-slate-100 font-bold tracking-wider cursor-pointer;
+    @apply sm:mt-10; /* MEDIUM SCREEN */
 }
 
+.contact-response span {
+    @apply text-3xl;
+    @apply sm:text-4xl
+}
+
+.contact-response div {
+    @apply text-lg;
+    @apply sm:text-xl
+}

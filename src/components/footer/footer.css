@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .container-footer {
-    @apply bg-myfirstyellow pb-2
+    @apply bg-mysecondyellow py-6;
 }
 
 .footer-links {
@@ -11,7 +11,7 @@
 }
 
 .footer-links p {
-    @apply text-mygreen text-xl font-bold tracking-wider text-center;
+    @apply text-mygreen text-2xl font-bold tracking-wider text-center;
     @apply sm:text-2xl; /* MEDIUM SCREEN */
 }
 

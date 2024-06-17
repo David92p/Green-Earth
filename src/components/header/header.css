@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 .container-header {
-    @apply flex flex-col bg-myfirstyellow p-4 mt-14;
+    @apply flex flex-col bg-myfirstyellow p-4 mt-14 py-10;
     @apply sm:mt-20 sm:px-0; /* medium screen */
-    @apply 2xl:flex-row 2xl:justify-around  2xl:mt-24; /* large screen */
+    @apply 2xl:flex-row 2xl:justify-around 2xl:mt-24 2xl:pb-14; /* large screen */
 }
 
 .container-header-text {
-    @apply flex flex-col;
+    @apply flex flex-col pb-4;
     @apply sm:justify-center sm:gap-4; /* medium screen */
     @apply 2xl:w-1/2; /* large screen */
 }

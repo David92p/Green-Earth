@@ -7,7 +7,12 @@
 }
 
 .container-video {
-    @apply flex justify-center items-center
+    @apply flex justify-center items-center;
+    @apply 2xl:w-full 2xl:h-[500px] /* LARGE SCREEN */
+}
+
+.container-video video {
+    @apply h-full object-fill
 }
 
 .container-text-video {
