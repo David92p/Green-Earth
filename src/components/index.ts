@@ -1,5 +1,9 @@
+
+// import Router
+import Router from "./shared/Router";
+
 // import navbar
-import Navbar from "./navbar/Navbar";
+import Navbar from "./shared/Navbar";
 
 // import header
 import Header from "./header/Header";
@@ -29,5 +33,5 @@ import Pending from "./global/Pending";
 import type { CardType } from "./global/Card";
 import type { cityDataType } from "./dataSearch/DataSearch";
 
-export { Navbar, Header,Introduction, DataSearch, Main, Contact, Footer, Button, Card, Carousel, Pending }
+export { Router, Navbar, Header,Introduction, DataSearch, Main, Contact, Footer, Button, Card, Carousel, Pending }
 export type { CardType, cityDataType }
