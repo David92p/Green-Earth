@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 
 import logo from "../../assets/images/logo.png"
+import { NavLink } from "react-router-dom";
 
 
 const Navbar:React.FC = () => {
@@ -15,14 +16,14 @@ const Navbar:React.FC = () => {
   return (
     <div className="container-nav">
 			<div className="container-toggle">
-				<a className="container-logo" href="#top" onClick={() => setIsOpen(false)}>
+				<NavLink className="container-logo" to="/" onClick={() => setIsOpen(false)}>
 					<img src={logo} alt="LOGO" className={`logo ${isOpen ? "hidden" : null}`}/>
-				</a>
+				</NavLink>
 				<div className="container-links invisible sm:visible">
-					<a className="link" href="#introduction" onClick={() => setIsOpen(false)}>Introduction</a>
-					<a className="link" href="#chart" onClick={() => setIsOpen(false)}>Chart</a>
-					<a className="link" href="#eugreendeal" onClick={() => setIsOpen(false)}>EU Green Deal</a>
-					<a className="link" href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
+					<NavLink to="/" className="link" onClick={() => setIsOpen(false)}>Introduction</NavLink>
+					<NavLink to="/data-search" className="link" onClick={() => setIsOpen(false)}>Chart</NavLink>
+					<NavLink to="/european-green-deal" className="link" onClick={() => setIsOpen(false)}>EU Green Deal</NavLink>
+					<NavLink to="/contact" className="link" onClick={() => setIsOpen(false)}>Contact</NavLink>
 				</div>
 				<div className="container-burger">
 					<motion.button
@@ -38,10 +39,10 @@ const Navbar:React.FC = () => {
 			{
 				isOpen ? (
 					<div className="container-links">
-						<a className="link" href="#introduction" onClick={() => setIsOpen(false)}>Introduction</a>
-						<a className="link" href="#chart" onClick={() => setIsOpen(false)}>Chart</a>
-						<a className="link" href="#eugreendeal" onClick={() => setIsOpen(false)}>EU Green Deal</a>
-						<a className="link" href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
+						<NavLink to="/" className="link" onClick={() => setIsOpen(false)}>Introduction</NavLink>
+						<NavLink to="/data-search" className="link" onClick={() => setIsOpen(false)}>Chart</NavLink>
+						<NavLink to="/european-green-deal" className="link" onClick={() => setIsOpen(false)}>EU Green Deal</NavLink>
+						<NavLink to="/contact" className="link" onClick={() => setIsOpen(false)}>Contact</NavLink>
 					</div>
 				) : null
 			}
