@@ -1,4 +1,5 @@
-import { Navbar, Contact, DataSearch, Header, Main, Footer, Introduction } from "./components"
+import { BrowserRouter } from "react-router-dom"
+import { Router, Navbar, Header, Footer } from "./components"
 
 import "./App.css"
 
@@ -7,13 +8,12 @@ const App:React.FC = () => {
 
   return (
     <div className="container">
-      <Navbar />
-      <Header />
-      <Introduction/>
-      <DataSearch/>
-      <Main/>
-      <Contact/>
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Navbar />
+        <Router />
+        <Footer />
+      </BrowserRouter>
     </div>
   )
 }
