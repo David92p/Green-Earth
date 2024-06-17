@@ -7,6 +7,7 @@ import img1 from "../../assets/images/header-1.png"
 import img2 from "../../assets/images/header-2.png"
 import img3 from "../../assets/images/header-3.png"
 import img4 from "../../assets/images/header-4.png"
+//import { useNavigate } from 'react-router-dom';
 
 
 const Header:React.FC = () => {
@@ -28,8 +29,8 @@ const Header:React.FC = () => {
       <div className="container-header-text">
         <p className="header-subtitle">ENVIRONMENTAL MONITORING</p>
         <p className="header-title">Our 2050 Journey</p>
-        <a href="#chart" className='header-link'>
-          <Button name={"EXPLORE OUR REPORT"}/>
+        <a className='header-link'>
+          <Button name={"EXPLORE OUR REPORT"} loadPage='data-search'/>
         </a>
       </div>
       {/* container immages */}
