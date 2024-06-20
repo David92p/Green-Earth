@@ -19,7 +19,6 @@ import Main from "./main/Main";
 
 // contact
 import Contact from "./contact/Contact"
-
 // footer
 import Footer from "./footer/Footer";
 
