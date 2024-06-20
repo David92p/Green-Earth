@@ -1,26 +1,44 @@
 import React, { useState } from 'react'
+import { useForm } from "react-hook-form"
+import { DevTool } from "@hookform/devtools"
+
 // img
 import contact1 from "../../assets/images/contact-1.jpg"
 // style 
 import "./contact.css"
-import { Button } from "../index"
+import { Button, Pending } from "../index"
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLeaf, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faLeaf } from '@fortawesome/free-solid-svg-icons';
+
+type FormValuesType = {
+  name: string
+  surname: string 
+  email: string
+  textarea: string
+  check: boolean
+}
+
+type ProgressStatusFormType = {
+  success: boolean
+  loading: boolean
+  error: boolean
+}
 
 const Contact:React.FC = () => {
-  
-  const [user_name, setUser_name] = useState<string>("");
-  const [user_surname, setUser_surname] = useState<string>("");
-  const [user_email, setUser_email] = useState<string>("");
-  const [user_message, setUser_messae] = useState<string>("");
-  const [user_check, setUser_check] = useState<boolean>(false);
-  const [success, setSuccess] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
 
-	const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    const DATA = {
+  const form = useForm<FormValuesType>()
+  
+	const { register, control, handleSubmit, formState, setValue } = form
+	const { errors } = formState
+  
+  const [progressStatusForm, setProgressStatusForm] = useState<ProgressStatusFormType>({success: false, loading: false, error: false})
+
+	const onSubmit = async (data:FormValuesType) => {
+    setProgressStatusForm({success: false, loading: true, error: false})
+    console.log(data)
+    const { name:user_name, surname:user_surname, email:user_email, textarea:user_message } = data
+    const REQUEST = {
       service_id: import.meta.env.VITE_APP_SERVICE_ID,
       template_id: import.meta.env.VITE_APP_TEMPLATE_ID,
       user_id: import.meta.env.VITE_APP_PUBLIC_KEY,
@@ -32,18 +50,21 @@ const Contact:React.FC = () => {
       },
     };
     try {
-      await axios.post("https://api.emailjs.com/api/v1.0/email/send", DATA);
-      setSuccess(true);
+      await axios.post("https://api.emailjs.com/api/v1.0/email/send", REQUEST);
+      setProgressStatusForm({success: true, loading: false, error: false})
     } catch (error) {
-      setError(true);
+      setProgressStatusForm({success: false, loading: false, error: true})
     }
     finally {
-      setUser_name("");
-      setUser_surname("");
-      setUser_email("");
-      setUser_messae("");
-      setUser_check(false);
+      setProgressStatusForm((prevStatus:ProgressStatusFormType) => {
+        return { ...prevStatus, loading: false }
+      })
     }
+    setValue("name", "")
+    setValue("surname", "")
+    setValue("email", "")
+    setValue("textarea", "")
+    setValue("check", false)
   };
 
   return (
@@ -64,91 +85,120 @@ const Contact:React.FC = () => {
           </div>
         </div>
         <div className="form-contact 2xl:py-auto">
-          {!success && !error ? (
-            <form onSubmit={handleSubmit} >
-              <div className="contact-container-input sm:grid grid-cols-2">
-                <input
-                  value={user_name}
-                  name="user_name"
-                  onChange={(e) => setUser_name(e.target.value)}
-                  placeholder={"name"}
-                  type="text"
-                  required
-                />
-                <input
-                  value={user_surname}
-                  name="user_surname"
-                  onChange={(e) => setUser_surname(e.target.value)}
-                  placeholder={"surname"}
-                  type="text"
-                  required
-                />
+          {
+            !progressStatusForm.error && !progressStatusForm.loading && !progressStatusForm.success && (
+              <>
+                <form onSubmit={handleSubmit(onSubmit)} >
+                  <div className="contact-container-input sm:grid sm-grid-cols-1 sm:grid-row-4">
+                    <input
+                      type='text'
+                      id="name"
+                      { ...register("name",
+                        {
+                          required: {value: true, message: "Name is Required"}
+                        }
+                      )}
+                      placeholder={"name"}
+                    />
+                    <p>{ errors.name?.message }</p>
+                    <input
+                      type='text'
+                      id="surname"
+                      { ...register("surname",
+                        {
+                          required: {value: true, message: "Surname is Required"}
+                        }
+                      )
+                      }
+                      placeholder={"surname"}
+                    />
+                    <p>{ errors.surname?.message }</p>
+                  </div>
+                  <div className="contact-container-input">
+                    <input
+                      placeholder={"email"}
+                      type="email"
+                      id='email'
+                      { ...register("email",
+                        {
+                          required: {value: true, message: "Email is Required"},
+                          pattern: {
+                            value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                            message: "Invalid Email format"
+                          }
+                        }
+                      )}
+                      className="mb-6"
+                    />
+                    <p>{ errors.email?.message }</p>
+                    <textarea
+                      id='textarea'
+                      { ...register("textarea",
+                        {required: {value: true, message: "Enter your message here to continue"},}
+                      )}
+                      placeholder={"message ..."}
+                      maxLength={500}
+                    ></textarea>
+                    <p>{ errors.textarea?.message }</p>
+                  </div>
+                  <div className="contact-container-termofuse">
+                    <div>
+                      <input
+                        type="checkbox"
+                        id="check"
+                        { ...register("check",
+                          {required: {value: true, message: "Accept the terms and conditions"},}
+                        )}
+                      />
+                      <span>
+                        {" "}
+                        I accept the{" "}
+                        <a href="">
+                          terms of Use
+                        </a>{" "}
+                        &{" "}
+                        <a href="">
+                          Privacy Policy
+                        </a>
+                      </span>
+                    </div>
+                    <p>{ errors.check?.message }</p>
+                  </div>
+                  <div className="contact-container-btn">
+                    <Button name="Send"/>
+                  </div>
+                </form>
+                <DevTool control={control}/>
+              </>
+            )
+          }
+          {
+            progressStatusForm.error && (
+              <div className='contact-response' onClick={() => setProgressStatusForm({success: false, loading: false, error: false})}>
+              <Pending type="error" />
               </div>
-              <div className="contact-container-input">
-                <input
-                  value={user_email}
-                  name="user_email"
-                  onChange={(e) => setUser_email(e.target.value)}
-                  placeholder={"email"}
-                  type="email"
-                  required
-                  className="mb-6"
-                />
-                <textarea
-                  value={user_message}
-                  name="user_message"
-                  onChange={(e) => setUser_messae(e.target.value)}
-                  placeholder={"message ..."}
-                  required
-                  maxLength={500}
-                ></textarea>
-              </div>
-              <div className="contact-container-termofuse">
-                <input
-                  required
-                  checked={user_check}
-                  onChange={(e) => setUser_check(e.target.checked)}
-                  type="checkbox"
-                  name="check"
-                  id="check"
-                />
-                <span>
-                  {" "}
-                  I accept the{" "}
-                  <a href="">
-                    terms of Use
-                  </a>{" "}
-                  &{" "}
-                  <a href="">
-                    Privacy Policy
-                  </a>
-                </span>
-              </div>
-              <div className="contact-container-btn">
-								<Button name="Send"/>
-              </div>
-            </form>
-          ) : success ? (
-            <div
-              onClick={() => setSuccess(false)}
-              className="contact-response bg-mygreen my-[50%]"
-            >
-              <span className='text-mysecondyellow'>Success!{"  "}<FontAwesomeIcon icon={faLeaf} style={{color: "#63E6BE"}} size='xl' /></span>
-              <div>
-                Thank you for contacting us, we will be happy to respond as soon as possible. <br/> See you soon from GreenEarth!
-              </div>
+            )
+          }
+          {
+            progressStatusForm.loading && (
+            <div className='contact-response' onClick={() => setProgressStatusForm({success: false, loading: false, error: false})}>
+              <Pending type="loading-form" />
             </div>
-          ) : (
-            <div
-              onClick={() => setError(false)}
-              className="contact-response bg-red-400 my-[50%]"
-            >
-              <span className='text-mysecondyellow'>Error!{"  "}<FontAwesomeIcon icon={faXmark} style={{color: "#ffcc31"}} size='xl' /></span>
-              <div>
-                We are very sorry but at the moment it seems that something has gone wrong. <br/> Please try again later!
+            )
+          }
+          {
+            progressStatusForm.success && (
+              <div
+                onClick={() => setProgressStatusForm({success: false, loading: false, error: false})}
+                className="contact-response bg-mygreen my-[50%] sm:my-0"
+              >
+                <span className='text-mysecondyellow'>Success!{"  "}<FontAwesomeIcon icon={faLeaf} style={{color: "#63E6BE"}} size='xl' /></span>
+                <div>
+                  Thank you for contacting us, we will be happy to respond as soon as possible. <br/> See you soon from GreenEarth!
+                </div>
               </div>
-            </div>
-          )}
+            )
+          }
         </div>
       </div>
     </div>
