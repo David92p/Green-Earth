@@ -43,7 +43,7 @@
 }
 
 .contact-container-input {
-    @apply flex flex-col mt-5 gap-4 mb-6
+    @apply flex flex-col mt-4 gap-2 mb-2
 }
 
 .contact-container-input input {
@@ -55,11 +55,15 @@
 }
 
 .contact-container-termofuse {
-    @apply mt-5 flex justify-center text-slate-900
+    @apply flex flex-col justify-center 
+}
+
+.contact-container-termofuse div {
+    @apply flex justify-center
 }
 
 .contact-container-termofuse input {
-    @apply border border-amber-800 mr-4
+    @apply border border-amber-800 mr-4 mb-4
 }
 
 .contact-container-termofuse span a {
@@ -72,13 +76,17 @@
 }
 
 .contact-response {
-    @apply flex flex-col gap-4 py-4 px-2 text-center shadow-2xl rounded-lg text-slate-100 font-bold tracking-wider cursor-pointer;
-    @apply sm:mt-10; /* MEDIUM SCREEN */
+    @apply flex flex-col justify-center items-center h-full gap-4 py-4 px-2 text-center rounded-lg text-slate-100 font-bold tracking-wider cursor-pointer;
+    @apply sm:mt-0; /* MEDIUM SCREEN */
 }
 
 .contact-response span {
     @apply text-3xl;
     @apply sm:text-4xl
+}
+
+p {
+    @apply text-center mt-2 text-red-500 text-xl
 }
 
 .contact-response div {

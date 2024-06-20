@@ -4,10 +4,10 @@
 
 
 .container-pending {
-    @apply flex justify-center items-center h-full w-full
+    @apply flex justify-center items-center h-full w-full;
 }
 
 .container-pending img {
-    @apply object-contain;
-    @apply sm:w-1/3 /* MEDIUM SCREEN */
+    @apply object-contain w-full h-full;
+    @apply sm:w-2/3 /* MEDIUM SCREEN */
 }
