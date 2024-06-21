@@ -124,18 +124,10 @@ const Contact:React.FC = () => {
                           required: {value: true, message: "Email is Required"},
                           pattern: {
                             value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-<<<<<<< Updated upstream
-                            message: "Invalid Email format"
-                          }
-                        }
-                      )}
-                      className="mb-6"
-=======
                             message: "Invalid Email - format example@gmail.com"
                           }
                         }
                       )}
->>>>>>> Stashed changes
                     />
                     <p>{ errors.email?.message }</p>
                     <textarea
@@ -182,11 +174,7 @@ const Contact:React.FC = () => {
           {
             progressStatusForm.error && (
               <div className='contact-response' onClick={() => setProgressStatusForm({success: false, loading: false, error: false})}>
-<<<<<<< Updated upstream
-              <Pending type="error" />
-=======
                 <Pending type="error-form" />
->>>>>>> Stashed changes
               </div>
             )
           }
