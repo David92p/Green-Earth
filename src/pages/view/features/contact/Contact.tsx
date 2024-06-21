@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
-import { DevTool } from "@hookform/devtools"
+// import { DevTool } from "@hookform/devtools"
 
 // img
 import contact1 from "../../../../assets/images/contact-1.jpg"
@@ -29,7 +29,7 @@ const Contact:React.FC = () => {
 
   const form = useForm<FormValuesType>()
   
-	const { register, control, handleSubmit, formState, setValue } = form
+	const { register, handleSubmit, formState, setValue } = form
 	const { errors } = formState
   
   const [progressStatusForm, setProgressStatusForm] = useState<ProgressStatusFormType>({success: false, loading: false, error: false})
@@ -166,7 +166,7 @@ const Contact:React.FC = () => {
                     <Button name="Send"/>
                   </div>
                 </form>
-                <DevTool control={control}/>
+                {/* <DevTool control={control}/> */}
               </>
             )
           }
