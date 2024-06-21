@@ -76,12 +76,7 @@
 }
 
 .contact-response {
-<<<<<<< Updated upstream
-    @apply flex flex-col justify-center items-center h-full gap-4 py-4 px-2 text-center rounded-lg text-slate-100 font-bold tracking-wider cursor-pointer;
-=======
     @apply flex flex-col justify-center items-center h-64 gap-4 py-4 px-2 text-center rounded-lg text-slate-100 font-bold tracking-wider cursor-pointer;
->>>>>>> Stashed changes
-    @apply sm:mt-0; /* MEDIUM SCREEN */
 }
 
 .contact-response span {
@@ -90,11 +85,7 @@
 }
 
 p {
-<<<<<<< Updated upstream
-    @apply text-center mt-2 text-red-500 text-xl
-=======
     @apply text-center mt-2 text-red-500 text-lg
->>>>>>> Stashed changes
 }
 
 .contact-response div {
