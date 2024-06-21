@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import introduction1 from "../../assets/images/introduction-1.png"
-import introduction2 from "../../assets/images/introduction-2.png"
-import introduction3 from "../../assets/images/introduction-3.png"
+import introduction1 from "../../../../assets/images/introduction-1.png"
+import introduction2 from "../../../../assets/images/introduction-2.png"
+import introduction3 from "../../../../assets/images/introduction-3.png"
 
 import "./introduction.css"
 

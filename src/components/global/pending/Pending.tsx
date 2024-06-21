@@ -1,8 +1,7 @@
 import React from 'react'
-import loading from "../../assets/images/loading.gif"
-import error from "../../assets/images/error.png"
-
-
+// img
+import loading from "../../../assets/images/loading.gif"
+import error from "../../../assets/images/error.png"
 //style 
 import "./pending.css"
 

@@ -1,7 +1,10 @@
 import { BrowserRouter } from "react-router-dom"
-import { Router, Navbar, Header, Footer } from "./components"
 
+// style 
 import "./App.css"
+
+import { Header, Footer } from "./components"
+import { Navbar, Router } from "./shared"
 
 
 const App:React.FC = () => {

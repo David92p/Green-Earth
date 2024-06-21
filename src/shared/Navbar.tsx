@@ -5,7 +5,7 @@ import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 
-import logo from "../../assets/images/logo.png"
+import logo from "../assets/images/logo.png"
 import { NavLink } from "react-router-dom";
 
 

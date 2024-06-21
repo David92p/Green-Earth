@@ -6,8 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./carousel.css"
 
-import type  { CardType } from "./Card";
-import Card from "./Card";
+import type  { CardType } from "../../../components/index";
+import { Card } from "../../index";
 
 
 export type CardsCarousel = {

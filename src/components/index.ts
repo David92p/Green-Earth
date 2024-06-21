@@ -1,36 +1,18 @@
+// header
+import Header from "./header/Header"
 
-// import Router
-import Router from "./shared/Router";
-
-// import navbar
-import Navbar from "./shared/Navbar";
-
-// import header
-import Header from "./header/Header";
-
-// import introduction
-import Introduction from "./introduction/Introduction";
-
-// data search
-import DataSearch from "./dataSearch/DataSearch";
-
-// main
-import Main from "./main/Main";
-
-// contact
-import Contact from "./contact/Contact"
 // footer
 import Footer from "./footer/Footer";
 
 // global components 
-import Button from "./global/Button";
-import Card from "./global/Card";
-import Carousel from "./global/Carousel";
-import Pending from "./global/Pending";
+import Button from "./global/button/Button";
+import Card from "./global/card/Card";
+import Carousel from "./global/carousel/Carousel";
+import Pending from "./global/pending/Pending";
 
 // type
-import type { CardType } from "./global/Card";
-import type { cityDataType } from "./dataSearch/DataSearch";
+import type { CardType } from "./global/card/Card";
+import type { cityDataType } from "../pages/view/features/dataSearch/DataSearch";
 
-export { Router, Navbar, Header,Introduction, DataSearch, Main, Contact, Footer, Button, Card, Carousel, Pending }
+export { Header, Footer, Button, Card, Carousel, Pending }
 export type { CardType, cityDataType }

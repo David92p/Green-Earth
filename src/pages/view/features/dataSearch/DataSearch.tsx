@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Research from './Research'
 import Chart from './Chart'
-import { Button, Pending } from '..'
+import { Button, Pending } from '../../../../components'
 
 export type pollutingValuesType = null | {
 	co: number,

@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form"
 import { DevTool } from "@hookform/devtools"
 
 // img
-import contact1 from "../../assets/images/contact-1.jpg"
+import contact1 from "../../../../assets/images/contact-1.jpg"
 // style 
 import "./contact.css"
-import { Button, Pending } from "../index"
+import { Button, Pending } from "../../../../components/index"
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
@@ -36,7 +36,6 @@ const Contact:React.FC = () => {
 
 	const onSubmit = async (data:FormValuesType) => {
     setProgressStatusForm({success: false, loading: true, error: false})
-    console.log(data)
     const { name:user_name, surname:user_surname, email:user_email, textarea:user_message } = data
     const REQUEST = {
       service_id: import.meta.env.VITE_APP_SERVICE_ID,

@@ -1,5 +1,6 @@
 import { useRoutes } from "react-router-dom";
-import { Contact, DataSearch, Introduction, Main, Pending } from "..";
+import { Pending } from "../components";
+import { Introduction, DataSearch, Main, Contact } from "../pages";
 
 const Router:React.FC = () => {
   return useRoutes([

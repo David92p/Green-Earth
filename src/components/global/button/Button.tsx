@@ -2,7 +2,7 @@ import React from 'react'
 // style 
 import "./button.css"
 // type 
-import { cityDataType } from '..'
+import { cityDataType } from '../..'
 import { useNavigate } from 'react-router-dom'
 
 type ButtonType = {

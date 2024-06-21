@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
-import { Carousel } from '../';
+import { Carousel } from '../../../../components';
 // img
-import body1 from "../../assets/images/body-1.png"
-import body2 from "../../assets/images/body-2.mp4"
+import body1 from "../../../../assets/images/body-1.png"
+import body2 from "../../../../assets/images/body-2.mp4"
 // data
-import { cards } from "../../data" 
+import { cards } from "../../../../data" 
 //style
 import "./main.css"
 
