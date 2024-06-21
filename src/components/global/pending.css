@@ -4,6 +4,7 @@
 
 
 .container-pending {
+<<<<<<< Updated upstream
     @apply flex justify-center items-center h-full w-full;
 }
 
@@ -11,3 +12,12 @@
     @apply object-contain w-full h-full;
     @apply sm:w-2/3 /* MEDIUM SCREEN */
 }
+=======
+    @apply flex justify-center items-center w-full h-full;
+}
+
+/* .container-pending img {
+    @apply object-contain w-2/3;
+    @apply sm:w-2/3; 
+} */
+>>>>>>> Stashed changes
